@@ -9,7 +9,7 @@ Now it's time for AI to unlock what comes next.
 
 And with all new things, there is much exciting work to be done here. **Upwards and onwards!**
 <br>
-
+<br>
 
 <div align="center">
   <a href="https://www.youtube.com/watch?v=Nhqy4o57bl4">
