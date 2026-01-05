@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.32.1",
+    "@google/generative-ai": "^0.24.1",
     "@strudel/codemirror": "^1.2.5",
     "@strudel/core": "^1.2.5",
     "@strudel/draw": "^1.2.5",
@@ -22,7 +23,7 @@
     "@strudel/tonal": "^1.2.5",
     "@strudel/transpiler": "^1.2.5",
     "@strudel/webaudio": "^1.2.5",
-    "next": "14.2.21",
+    "next": "^14.2.35",
     "openai": "^6.15.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
