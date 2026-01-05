@@ -3,7 +3,7 @@ export type {
   SongIndexEntry,
   SongIndex,
   StylePriors,
-} from "../../public/assets/dataset/schema";
+} from "./schema";
 
 export type { RetrievedSong } from "./retrieve";
 

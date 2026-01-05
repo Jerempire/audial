@@ -60,9 +60,9 @@ audial/
 ├── components/           # React components
 ├── lib/                  # Utilities and business logic
 │   ├── ai/               # System prompts, taste framework
-│   ├── dataset/          # Song retrieval system
+│   ├── dataset/          # Song retrieval system (stub)
 │   └── *.ts              # Parsing, validation
-├── public/assets/        # Static assets, song dataset
+├── public/assets/        # Static assets
 └── docs/                 # Documentation
 ```
 

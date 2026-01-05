@@ -9,8 +9,7 @@
     "lint": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "check": "node -e \"const r=n=>new Promise(o=>{require('child_process').exec(n,{stdio:'inherit'},(e,s,r)=>o({ok:!e,out:s,err:r}))});(async()=>{const t=[['typecheck','tsc --noEmit'],['test','vitest run'],['build','next build']];let p=0,f=0;console.log('\\n━━━ Running checks ━━━\\n');for(const[n,c]of t){process.stdout.write(n+'... ');const x=await r(c);x.ok?(p++,console.log('✓ pass')):(f++,console.log('✗ fail'),x.err&&console.log(x.err))}console.log('\\n━━━ Summary ━━━');console.log(p+'/'+t.length+' passed, '+f+' failed\\n');process.exit(f?1:0)})()\"",
-    "build-dataset": "tsx public/assets/dataset/scripts/build_index.ts && tsx public/assets/dataset/scripts/build_style_priors.ts"
+    "check": "node -e \"const r=n=>new Promise(o=>{require('child_process').exec(n,{stdio:'inherit'},(e,s,r)=>o({ok:!e,out:s,err:r}))});(async()=>{const t=[['typecheck','tsc --noEmit'],['test','vitest run'],['build','next build']];let p=0,f=0;console.log('\\\\n━━━ Running checks ━━━\\\\n');for(const[n,c]of t){process.stdout.write(n+'... ');const x=await r(c);x.ok?(p++,console.log('✓ pass')):(f++,console.log('✗ fail'),x.err&&console.log(x.err))}console.log('\\\\n━━━ Summary ━━━');console.log(p+'/'+t.length+' passed, '+f+' failed\\\\n');process.exit(f?1:0)})();\""
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.32.1",

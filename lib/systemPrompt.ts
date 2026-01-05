@@ -4,8 +4,6 @@
 // now with musical taste framework - feeling first, technique second
 // uses dataset-aware master system prompt with 18 strategies and 20 song exemplars
 
-import * as fs from "fs";
-import * as path from "path";
 import { CLAUDE_STRUDEL_SPEC_MIN } from "./ai/claudeStrudelSpec";
 import {
   MUSIC_THEORY_FUNDAMENTALS,
@@ -14,18 +12,10 @@ import {
 } from "./ai/musicalTaste";
 
 // load master system prompt from dataset distillation
+// Dataset has been removed - returns empty string
 function loadMasterSystemPrompt(): string {
-  try {
-    const masterPromptPath = path.join(
-      process.cwd(),
-      "public/assets/dataset_distill",
-      "master_system_prompt.md"
-    );
-    return fs.readFileSync(masterPromptPath, "utf-8");
-  } catch (error) {
-    console.warn("could not load master system prompt, using fallback:", error);
-    return "";
-  }
+  // Dataset has been removed - return empty string gracefully
+  return "";
 }
 
 export function buildSystemPrompt(): string {
