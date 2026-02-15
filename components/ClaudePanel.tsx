@@ -65,6 +65,8 @@ export default function ClaudePanel({ strudelAdapter, isMobile = false, settings
   const [rawErrorResponse, setRawErrorResponse] = useState<string | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isExporting, setIsExporting] = useState(false);
+  const [exportDuration, setExportDuration] = useState(30);
   const accumulatedTextRef = useRef<string>("");
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
@@ -312,6 +314,21 @@ export default function ClaudePanel({ strudelAdapter, isMobile = false, settings
     }
   };
 
+  // Export audio as WAV
+  const handleExport = async () => {
+    if (!strudelAdapter || isExporting) return;
+    setIsExporting(true);
+    setError(null);
+    try {
+      await strudelAdapter.exportAudio(exportDuration);
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "export failed";
+      setError(msg);
+    } finally {
+      setIsExporting(false);
+    }
+  };
+
   // Toggle play/stop
   const handlePlayToggle = async () => {
     if (isPlaying) {
@@ -546,7 +563,58 @@ export default function ClaudePanel({ strudelAdapter, isMobile = false, settings
           )}
           <span className="text-sm md:text-base font-medium">{isPlaying ? "stop" : "play"}</span>
         </button>
-        
+
+        {/* download button + duration picker */}
+        <div className="flex items-center gap-1">
+          <button
+            onClick={handleExport}
+            disabled={isExporting || !strudelAdapter}
+            className="rounded-md flex items-center justify-center gap-1 h-7 md:h-8 px-2 md:px-2.5 transition-all text-xs"
+            style={{
+              color: "var(--text-alt)",
+              border: "1px solid var(--border-right-panel)",
+              opacity: isExporting || !strudelAdapter ? 0.4 : 0.7,
+            }}
+            title="Download WAV"
+          >
+            {isExporting ? (
+              <>
+                <span
+                  className="w-2 h-2 rounded-full animate-pulse flex-shrink-0"
+                  style={{ background: "var(--accent)" }}
+                />
+                <span>{isMobile ? "..." : `exporting ${exportDuration}s...`}</span>
+              </>
+            ) : (
+              <>
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                <span>.wav</span>
+              </>
+            )}
+          </button>
+          <select
+            value={exportDuration}
+            onChange={(e) => setExportDuration(Number(e.target.value))}
+            disabled={isExporting}
+            className="h-7 md:h-8 px-1 rounded-md text-xs bg-transparent focus:outline-none"
+            style={{
+              color: "var(--text-alt)",
+              border: "1px solid var(--border-right-panel)",
+              opacity: isExporting ? 0.4 : 0.7,
+            }}
+          >
+            <option value={15}>15s</option>
+            <option value={30}>30s</option>
+            <option value={60}>1m</option>
+            <option value={120}>2m</option>
+            <option value={300}>5m</option>
+          </select>
+        </div>
+
         {chatMessages.length > 0 && (
           <button
             onClick={handleStartFresh}
