@@ -22,6 +22,7 @@ export default function Home() {
   const [settings, setSettings] = useState<Settings>(() => loadSettings());
   const [toast, setToast] = useState<string | null>(null);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -34,6 +35,12 @@ export default function Home() {
     }
     // Load settings on mount
     setSettings(loadSettings());
+    // Load theme preference
+    const savedTheme = localStorage.getItem("audial-theme") as "light" | "dark" | null;
+    if (savedTheme) {
+      setTheme(savedTheme);
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    }
   }, []);
 
   // Dynamically adjust right panel width on window resize
@@ -86,6 +93,52 @@ export default function Home() {
       document.removeEventListener("mouseup", handleMouseUp);
     };
   }, [isDragging]);
+
+  // Keyboard shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement;
+      const isInput = target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable;
+
+      // Space → play/stop (only when not typing in an input)
+      if (e.code === "Space" && !isInput) {
+        e.preventDefault();
+        if (strudelAdapter) {
+          if (strudelAdapter.isPlaying()) {
+            strudelAdapter.stop();
+          } else {
+            strudelAdapter.run();
+          }
+        }
+      }
+
+      // Ctrl/Cmd+E → export WAV (30s default)
+      if ((e.ctrlKey || e.metaKey) && e.key === "e" && !e.shiftKey) {
+        e.preventDefault();
+        if (strudelAdapter) {
+          strudelAdapter.exportAudio(30).catch(() => {});
+        }
+      }
+
+      // Ctrl/Cmd+Shift+N → new song
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === "N") {
+        e.preventDefault();
+        // Trigger via a custom event that ClaudePanel listens for
+        window.dispatchEvent(new CustomEvent("audial-new-song"));
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [strudelAdapter]);
+
+  // Theme toggle
+  const toggleTheme = useCallback(() => {
+    const next = theme === "light" ? "dark" : "light";
+    setTheme(next);
+    document.documentElement.setAttribute("data-theme", next);
+    localStorage.setItem("audial-theme", next);
+  }, [theme]);
 
   // Share functionality - copy link to clipboard
   const handleShare = useCallback(async () => {
@@ -150,6 +203,30 @@ export default function Home() {
         
         {/* actions */}
         <div className="flex items-center gap-1 md:gap-3">
+          <button
+            onClick={toggleTheme}
+            className="p-2 md:p-3 rounded-lg transition-all"
+            style={{ color: 'var(--text-alt)' }}
+            title={theme === 'light' ? 'Dark mode' : 'Light mode'}
+          >
+            {theme === 'light' ? (
+              <svg className="w-5 h-5 md:w-7 md:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+            ) : (
+              <svg className="w-5 h-5 md:w-7 md:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+              </svg>
+            )}
+          </button>
           <a
             href="https://github.com/DorsaRoh/audial"
             target="_blank"
@@ -241,8 +318,8 @@ export default function Home() {
           />
           <div 
             className="relative max-w-lg w-full rounded-2xl p-8 shadow-2xl"
-            style={{ 
-              background: '#ffffff',
+            style={{
+              background: 'var(--bg-alt, #ffffff)',
             }}
             onClick={e => e.stopPropagation()}
           >
@@ -257,12 +334,12 @@ export default function Home() {
               </svg>
             </button>
 
-            <div 
+            <div
               className="max-h-[70vh] overflow-y-auto scrollbar-none"
-              style={{ color: '#444' }}
+              style={{ color: 'var(--text-alt)' }}
             >
               {/* Tips section */}
-              <h2 className="text-xl font-bold mb-5" style={{ color: '#1a1a1a', letterSpacing: '-0.02em' }}>
+              <h2 className="text-xl font-bold mb-5" style={{ color: 'var(--accent)', letterSpacing: '-0.02em' }}>
                 Tips for Better Results
               </h2>
               
@@ -288,7 +365,7 @@ export default function Home() {
               
               <div 
                 className="p-4 rounded-xl mb-6"
-                style={{ background: '#f8f8f8' }}
+                style={{ background: 'var(--surface-alt)' }}
               >
                 <p className="font-semibold text-sm uppercase tracking-wide mb-2" style={{ color: '#666' }}>Note</p>
                 <p className="text-sm leading-relaxed italic" style={{ color: '#555', lineHeight: '1.7' }}>

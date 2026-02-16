@@ -10,7 +10,7 @@
   --theme: 'white-pink';
 }
 
-:root {
+:root, [data-theme="light"] {
   --bg: #f7f7f7;
   --bg-alt: #ffffff;
   --surface: #f7f7f7; /* left panel background color */
@@ -21,10 +21,27 @@
   --accent-alt: #210124; /* accent color for right panel */
   --hover: #CC0047; /* darker fuchsia/hot pink for hover states */
   --title: #CC0047; /* title default color */
-  --title-hover: #FF0059; /* title hover color */ 
+  --title-hover: #FF0059; /* title hover color */
   --border: #5a5a5a1a; /* non-hover color of border */
   --border-left-panel: #5a5a5a4d; /* non-hover color of border for left panel (border between left panel and header, and left panel and right panel) */
   --border-right-panel: #95959568; /* border color for everything else in right panel */
+}
+
+[data-theme="dark"] {
+  --bg: #0a0a0a;
+  --bg-alt: #111111;
+  --surface: #0a0a0a;
+  --surface-alt: #1a1a1a;
+  --text: #FF0059;
+  --text-alt: #c0b8c2;
+  --accent: #FF0059;
+  --accent-alt: #e8c0cc;
+  --hover: #FF3377;
+  --title: #FF3377;
+  --title-hover: #FF0059;
+  --border: #ffffff12;
+  --border-left-panel: #ffffff20;
+  --border-right-panel: #ffffff25;
 }
 
 
@@ -563,7 +580,7 @@ a:hover svg {
 /* background hover states */
 button:hover:not(:disabled),
 a.header-action:hover {
-  background-color: rgba(204, 0, 71, 0.1) !important;
+  background-color: rgba(255, 0, 89, 0.1) !important;
 }
 
 a.header-action:hover {
@@ -574,11 +591,11 @@ a.header-action:hover svg {
   color: var(--hover) !important;
 }
 
-/* play button - hot pink styling by default */
+/* play button - accent styling */
 button.play-button {
-  border: 1px solid #FF0059 !important;
-  background-color: rgba(204, 0, 71, 0.1) !important;
-  color: #FF0059 !important;
+  border: 1px solid var(--accent) !important;
+  background-color: rgba(255, 0, 89, 0.1) !important;
+  color: var(--accent) !important;
 }
 
 /* divider hover */

@@ -8,6 +8,7 @@ import {
   DEFAULT_CODE,
 } from "@/lib/sessionStore";
 import type { Settings } from "./SettingsModal";
+import { PRESETS } from "@/lib/presets";
 
 // format strudel errors for display with line info
 function formatStrudelError(err: unknown): string {
@@ -366,6 +367,58 @@ export default function ClaudePanel({ strudelAdapter, isMobile = false, settings
     [strudelAdapter, store]
   );
 
+  // Load a preset song
+  const handleLoadPreset = useCallback(
+    async (code: string) => {
+      if (!strudelAdapter) return;
+      await strudelAdapter.stop();
+      setIsPlaying(false);
+      strudelAdapter.setCode(code);
+      store.setCurrentCode(code);
+      setError(null);
+      setStatus("preset loaded");
+      setTimeout(() => setStatus(null), 1500);
+      // Auto-play after loading
+      try {
+        await strudelAdapter.run();
+        setIsPlaying(true);
+      } catch (runErr) {
+        setError(formatStrudelError(runErr));
+      }
+    },
+    [strudelAdapter, store]
+  );
+
+  // Copy session for Claude feedback
+  const handleCopyForClaude = useCallback(async () => {
+    if (!strudelAdapter) return;
+    const code = strudelAdapter.getCode();
+    const recentChat = chatMessages.slice(-10);
+
+    let text = "## Audial Session\n\n";
+    text += "### Current Code\n```javascript\n" + code + "\n```\n\n";
+
+    if (recentChat.length > 0) {
+      text += "### Recent Chat\n";
+      for (const msg of recentChat) {
+        const role = msg.role === "user" ? "Me" : "AI";
+        text += `- **${role}**: ${msg.content}\n`;
+      }
+      text += "\n";
+    }
+
+    text += "### What I need\n[describe what you hear and what you want changed]\n";
+
+    try {
+      await navigator.clipboard.writeText(text);
+      setStatus("copied for Claude!");
+      setTimeout(() => setStatus(null), 1500);
+    } catch {
+      setStatus("copy failed");
+      setTimeout(() => setStatus(null), 1500);
+    }
+  }, [strudelAdapter, chatMessages]);
+
   const clearHistory = useCallback(() => {
     if (!strudelAdapter) return;
     strudelAdapter.stop();
@@ -379,6 +432,13 @@ export default function ClaudePanel({ strudelAdapter, isMobile = false, settings
     setTimeout(() => setStatus(null), 1500);
   }, [strudelAdapter, store]);
 
+
+  // Listen for keyboard shortcut: Ctrl+Shift+N → new song
+  useEffect(() => {
+    const handler = () => handleStartFresh();
+    window.addEventListener("audial-new-song", handler);
+    return () => window.removeEventListener("audial-new-song", handler);
+  }, [handleStartFresh]);
 
   // Runtime errors should persist until user takes action (no auto-clear)
   // Only clear rawErrorResponse after a delay for non-runtime errors
@@ -453,6 +513,27 @@ export default function ClaudePanel({ strudelAdapter, isMobile = false, settings
             ))}
           </div>
         )}
+      </div>
+
+      {/* presets */}
+      <div className="flex-shrink-0 px-2 md:px-4 py-1 md:py-2 flex flex-wrap gap-1 md:gap-1.5 justify-center">
+        {PRESETS.map((preset) => (
+          <button
+            key={preset.name}
+            onClick={() => handleLoadPreset(preset.code)}
+            disabled={isGenerating || !strudelAdapter}
+            className="px-2 md:px-2.5 py-0.5 md:py-1 text-xs rounded-full transition-all"
+            style={{
+              color: "var(--accent)",
+              background: "var(--bg)",
+              border: "1px solid var(--accent)",
+              opacity: isGenerating || !strudelAdapter ? 0.3 : 0.6,
+            }}
+            title={preset.tags.join(", ")}
+          >
+            {preset.name}
+          </button>
+        ))}
       </div>
 
       {/* quick actions */}
@@ -652,6 +733,25 @@ export default function ClaudePanel({ strudelAdapter, isMobile = false, settings
             <span>{isMobile ? 'reset' : 'reset history'}</span>
           </button>
         )}
+
+        {/* copy for claude feedback */}
+        <button
+          onClick={handleCopyForClaude}
+          disabled={!strudelAdapter}
+          className="rounded-md flex items-center justify-center gap-1 h-7 md:h-8 px-2 md:px-2.5 transition-all text-xs"
+          style={{
+            color: "var(--text-alt)",
+            border: "1px solid var(--border-right-panel)",
+            opacity: !strudelAdapter ? 0.4 : 0.7,
+          }}
+          title="Copy session for Claude feedback"
+        >
+          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+          </svg>
+          <span>{isMobile ? 'copy' : 'copy for claude'}</span>
+        </button>
       </div>
 
       {/* input */}
