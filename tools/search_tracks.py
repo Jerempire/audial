@@ -20,6 +20,9 @@ Usage:
 
 Combine filters:
     python tools/search_tracks.py --mood dark --energy 0.8:1.0 --key minor
+
+Natural language recommendations:
+    python tools/search_tracks.py --recommend "dark sacred slow for Byzantine painting"
 """
 
 import sys
@@ -151,6 +154,233 @@ def print_track(t: dict, verbose: bool = False):
     print()
 
 
+MOOD_KEYWORDS = {
+    # keyword -> (energy_range, brightness_range, mood_tags)
+    "dark": ((None, None), (0.0, 0.25), ["dark"]),
+    "bright": ((None, None), (0.5, 1.0), ["bright"]),
+    "sacred": ((None, None), (None, None), ["sacred", "chant", "religious"]),
+    "epic": ((0.7, 1.0), (None, None), ["epic", "intense"]),
+    "calm": ((0.0, 0.35), (None, None), ["calm", "still", "ambient"]),
+    "melancholy": ((0.1, 0.5), (0.0, 0.3), ["melancholy", "sad"]),
+    "intense": ((0.8, 1.0), (None, None), ["intense", "energetic"]),
+    "haunting": ((0.1, 0.5), (0.0, 0.2), ["haunting", "eerie"]),
+    "triumphant": ((0.7, 1.0), (0.4, 1.0), ["triumphant", "uplifting"]),
+    "warm": ((None, None), (0.2, 0.5), ["warm"]),
+    "ambient": ((0.0, 0.3), (None, None), ["ambient", "still"]),
+    "driving": ((0.7, 1.0), (None, None), ["rhythmic", "energetic"]),
+    "gentle": ((0.0, 0.3), (None, None), ["calm", "gentle"]),
+    "sparse": ((0.0, 0.3), (None, None), ["sparse"]),
+    "dense": ((0.6, 1.0), (None, None), ["dense"]),
+    "ancient": ((None, None), (None, None), ["ancient", "medieval", "sacred"]),
+    "medieval": ((None, None), (None, None), ["medieval"]),
+    "battle": ((0.8, 1.0), (None, None), ["intense", "epic", "battle"]),
+    "slow": ((None, None), (None, None), []),
+    "fast": ((None, None), (None, None), []),
+    "moderate": ((None, None), (None, None), []),
+}
+
+TEMPO_HINTS = {
+    "very slow": (40, 70),
+    "slow": (50, 90),
+    "moderate": (80, 120),
+    "fast": (120, 170),
+    "driving": (110, 160),
+}
+
+
+def parse_description(desc: str) -> dict:
+    """Parse a natural language description into search filters."""
+    desc_lower = desc.lower()
+    filters = {
+        "mood_tags": [],
+        "energy_lo": None, "energy_hi": None,
+        "brightness_lo": None, "brightness_hi": None,
+        "bpm_lo": None, "bpm_hi": None,
+        "text_queries": [],
+    }
+
+    # Extract mood keywords
+    for kw, (e_range, b_range, tags) in MOOD_KEYWORDS.items():
+        if kw in desc_lower:
+            filters["mood_tags"].extend(tags)
+            if e_range[0] is not None:
+                filters["energy_lo"] = max(filters["energy_lo"] or 0, e_range[0])
+            if e_range[1] is not None:
+                if filters["energy_hi"] is None:
+                    filters["energy_hi"] = e_range[1]
+                else:
+                    filters["energy_hi"] = min(filters["energy_hi"], e_range[1])
+            if b_range[0] is not None:
+                filters["brightness_lo"] = max(filters["brightness_lo"] or 0, b_range[0])
+            if b_range[1] is not None:
+                if filters["brightness_hi"] is None:
+                    filters["brightness_hi"] = b_range[1]
+                else:
+                    filters["brightness_hi"] = min(filters["brightness_hi"], b_range[1])
+
+    # Extract tempo hints
+    for hint, (lo, hi) in TEMPO_HINTS.items():
+        if hint in desc_lower:
+            filters["bpm_lo"] = lo
+            filters["bpm_hi"] = hi
+            break
+
+    # Remaining words as text queries (skip common filler words)
+    filler = {"for", "a", "an", "the", "and", "or", "of", "in", "with", "like", "music",
+              "track", "tracks", "song", "songs", "vibe", "vibes", "feel", "feeling",
+              "something", "need", "want", "find", "pick", "recommend", "painting",
+              "art", "project", "scene", "soundtrack", "background"}
+    words = desc_lower.split()
+    remaining = [w for w in words if w not in filler and w not in MOOD_KEYWORDS and w not in
+                 {w2 for hint in TEMPO_HINTS for w2 in hint.split()}]
+    if remaining:
+        filters["text_queries"] = remaining
+
+    return filters
+
+
+def score_track_for_description(track: dict, filters: dict) -> float:
+    """Score how well a track matches a parsed description."""
+    score = 0.0
+
+    # Mood tag matching
+    tags = [t.lower() for t in (track.get("tags") or [])]
+    prompt = (track.get("audial_prompt") or "").lower()
+    for mood_tag in filters["mood_tags"]:
+        mt = mood_tag.lower()
+        if any(mt in t for t in tags):
+            score += 2.0
+        elif mt in prompt:
+            score += 1.0
+
+    # Energy range
+    energy = track.get("energy")
+    if energy is not None:
+        elo = filters.get("energy_lo")
+        ehi = filters.get("energy_hi")
+        if elo is not None and ehi is not None:
+            if elo <= energy <= ehi:
+                score += 2.0
+            else:
+                mid = (elo + ehi) / 2
+                score -= min(abs(energy - mid), 1.0)
+        elif elo is not None and energy >= elo:
+            score += 1.0
+        elif ehi is not None and energy <= ehi:
+            score += 1.0
+
+    # Brightness range
+    brightness = track.get("brightness")
+    if brightness is not None:
+        blo = filters.get("brightness_lo")
+        bhi = filters.get("brightness_hi")
+        if blo is not None and bhi is not None:
+            if blo <= brightness <= bhi:
+                score += 2.0
+            else:
+                mid = (blo + bhi) / 2
+                score -= min(abs(brightness - mid), 1.0)
+        elif blo is not None and brightness >= blo:
+            score += 1.0
+        elif bhi is not None and brightness <= bhi:
+            score += 1.0
+
+    # BPM range
+    bpm = track.get("bpm_feel") or track.get("bpm")
+    if bpm is not None:
+        bpm_lo = filters.get("bpm_lo")
+        bpm_hi = filters.get("bpm_hi")
+        if bpm_lo is not None and bpm_hi is not None:
+            if bpm_lo <= bpm <= bpm_hi:
+                score += 1.5
+            else:
+                score -= 0.5
+
+    # Text query matching
+    for q in filters.get("text_queries", []):
+        if matches_text(track, q):
+            score += 3.0
+
+    return score
+
+
+def cmd_recommend(description: str, tracks: list[dict], limit: int = 3):
+    """Natural language recommendation mode."""
+    filters = parse_description(description)
+
+    scored = []
+    for track in tracks:
+        s = score_track_for_description(track, filters)
+        if s > 0:
+            scored.append((s, track))
+
+    scored.sort(key=lambda x: x[0], reverse=True)
+    top = scored[:limit]
+
+    if not top:
+        print(f"\n  No good matches for: \"{description}\"")
+        print(f"  Try broader terms or check available moods with: --mood <keyword>")
+        return
+
+    print(f"\n  {'='*58}")
+    print(f"  TOP {len(top)} RECOMMENDATIONS")
+    print(f"  Query: \"{description}\"")
+    print(f"  {'='*58}\n")
+
+    for rank, (score, t) in enumerate(top, 1):
+        title = t.get("title", "Unknown")
+        game = t.get("game", "")
+        key = f"{t.get('key', '?')} {t.get('mode', '')}".strip()
+        bpm = t.get("bpm_feel") or t.get("bpm", "?")
+        energy = t.get("energy")
+        brightness = t.get("brightness")
+        density = t.get("density")
+        yt_id = t.get("youtube_id", "")
+
+        game_str = f" ({game})" if game else ""
+        print(f"  #{rank}: {title}{game_str}  [score: {score:.1f}]")
+        print(f"    Key: {key} | BPM: {bpm} | E:{format_bar(energy)} B:{format_bar(brightness)} D:{format_bar(density)}")
+        if yt_id:
+            print(f"    YouTube: watch?v={yt_id}")
+        prompt = t.get("audial_prompt", "")
+        if prompt:
+            print(f"    Audial prompt: {prompt}")
+        print()
+
+    # Blended prompt from top 3
+    if len(top) >= 2:
+        prompts = [t.get("audial_prompt", "") for _, t in top if t.get("audial_prompt")]
+        if prompts:
+            # Collect unique descriptive fragments (skip key/bpm refs — we add those)
+            all_fragments = set()
+            for p in prompts:
+                for frag in p.split(","):
+                    frag = frag.strip()
+                    if frag and len(frag) > 3 and not frag.startswith("in ") and "bpm" not in frag:
+                        all_fragments.add(frag)
+            # Build blended prompt: distinct mood words, avg BPM, best key
+            bpms = [t.get("bpm_feel") or t.get("bpm") for _, t in top if (t.get("bpm_feel") or t.get("bpm"))]
+            avg_bpm = int(sum(bpms) / len(bpms)) if bpms else None
+            keys = [f"{t.get('key','')} {t.get('mode','')}".strip() for _, t in top]
+
+            from collections import Counter
+            best_key = Counter(keys).most_common(1)[0][0]
+
+            # Take up to 8 unique fragments, preferring shorter/more descriptive ones
+            sorted_frags = sorted(all_fragments, key=len)[:8]
+            blended_parts = sorted_frags
+            if avg_bpm:
+                blended_parts.append(f"around {avg_bpm} bpm")
+            if best_key:
+                blended_parts.append(f"in {best_key}")
+
+            blended = ", ".join(blended_parts)
+            print(f"  {'='*58}")
+            print(f"  CUSTOM BLENDED PROMPT")
+            print(f"  {'='*58}")
+            print(f"\n  {blended}\n")
+
+
 def main():
     args = sys.argv[1:]
 
@@ -165,6 +395,7 @@ def main():
     category_filter = None
     game_filter = None
     similar_to = None
+    recommend_desc = None
     sort_by = None
     output_json = False
     verbose = True
@@ -192,6 +423,8 @@ def main():
             game_filter = args[i + 1]; i += 2
         elif arg == "--similar" and i + 1 < len(args):
             similar_to = args[i + 1]; i += 2
+        elif arg == "--recommend" and i + 1 < len(args):
+            recommend_desc = args[i + 1]; i += 2
         elif arg == "--sort" and i + 1 < len(args):
             sort_by = args[i + 1]; i += 2
         elif arg == "--json":
@@ -213,6 +446,11 @@ def main():
         text_query = " ".join(positionals)
 
     tracks = load_db()
+
+    # Handle --recommend mode
+    if recommend_desc:
+        cmd_recommend(recommend_desc, tracks, limit=limit or 3)
+        return
 
     # Handle --similar mode
     if similar_to:
