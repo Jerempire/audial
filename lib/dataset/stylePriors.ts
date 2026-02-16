@@ -1,16 +1,20 @@
 /**
  * Loads style priors from the dataset.
- * Dataset has been removed - returns null.
+ * Reads from data/style-priors.json (bundled at build time).
  */
 
 import { StylePriors } from "./schema";
+import priorData from "../../data/style-priors.json";
+
+let cached: StylePriors | null = null;
 
 export function loadStylePriors(): StylePriors | null {
-  // Dataset has been removed - return null gracefully
-  return null;
+  if (!cached && priorData?.summary_bullets?.length > 0) {
+    cached = priorData as StylePriors;
+  }
+  return cached;
 }
 
 export function getStylePriors(): StylePriors | null {
-  return null;
+  return loadStylePriors();
 }
-

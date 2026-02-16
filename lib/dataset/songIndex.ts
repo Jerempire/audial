@@ -1,17 +1,20 @@
 /**
  * Loads and provides access to the song index.
- * Gracefully handles missing dataset (e.g., if submodule not initialized).
- * Dataset has been removed - returns null.
+ * Reads from data/song-index.json (bundled at build time).
  */
 
 import { SongIndex } from "./schema";
+import songData from "../../data/song-index.json";
+
+let cached: SongIndex | null = null;
 
 export function loadSongIndex(): SongIndex | null {
-  // Dataset has been removed - return null gracefully
-  return null;
+  if (!cached && songData?.songs?.length > 0) {
+    cached = songData as SongIndex;
+  }
+  return cached;
 }
 
 export function getSongIndex(): SongIndex | null {
-  return null;
+  return loadSongIndex();
 }
-

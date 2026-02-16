@@ -10,12 +10,19 @@ import {
   MUSICAL_TASTE_FRAMEWORK,
   STRUDEL_TASTE_GUIDELINES,
 } from "./ai/musicalTaste";
+import { getStylePriors } from "./dataset/stylePriors";
 
-// load master system prompt from dataset distillation
-// Dataset has been removed - returns empty string
+// load master system prompt from style priors dataset
 function loadMasterSystemPrompt(): string {
-  // Dataset has been removed - return empty string gracefully
-  return "";
+  const priors = getStylePriors();
+  if (!priors || priors.summary_bullets.length === 0) {
+    return "";
+  }
+  let prompt = "Dataset-derived composition guidelines:\n\n";
+  for (const bullet of priors.summary_bullets) {
+    prompt += `- ${bullet}\n`;
+  }
+  return prompt;
 }
 
 export function buildSystemPrompt(): string {

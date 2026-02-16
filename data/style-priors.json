@@ -1,0 +1,18 @@
+{
+  "summary_bullets": [
+    "CPM range: 40-100, median ~60. Slower tempos (40-55) for ambient/sacred, moderate (70-80) for melodic, faster (100+) for percussive/epic",
+    "Voice count: 4-5 voices typical. Foundation = drone or pad + bass + melody/texture + percussion",
+    "Gain ranges: pads 0.15-0.25, bass 0.2-0.35, melody/texture 0.08-0.15, drums 0.15-0.4, sub-bass 0.2-0.35",
+    "Reverb (.room) is the primary spatial effect: 0.3-0.5 for intimate, 0.7-0.95 for vast/sacred spaces",
+    "LPF filtering defines character: sub-bass at 80-120, warm bass at 200-500, bright leads at 1200+",
+    "Delay (0.2-0.7) adds depth to sparse melodic lines. Higher delay for more ethereal/sacred sounds",
+    "Common chord voicings: root+fifth+octave for power, root+third+fifth for warmth, extended 7ths for color",
+    "Slow modifiers (.slow(2-8)) control phrase length. .slow(4) is most common for 4-bar phrases",
+    "Preferred synths: sawtooth (pads, horns, brass), sine (bass, sub, bells), triangle (plucked, metallic), square (tension, edge)",
+    "Sparse patterns use rests intentionally: melodic lines alternate notes and rests for breathing room",
+    "Minor keys and modal ambiguity preferred for dark/sacred. Major keys for bright/pastoral",
+    "Sub-bass (sine + lpf 80-120) provides physical foundation without muddying the mix"
+  ],
+  "version": "1.0.0",
+  "generated_at": "2026-02-16T00:00:00Z"
+}
