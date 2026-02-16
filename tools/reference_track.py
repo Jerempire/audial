@@ -13,6 +13,8 @@ import sys
 import os
 import tempfile
 import subprocess
+import json
+import re
 
 try:
     sys.stdout.reconfigure(encoding="utf-8")
@@ -25,6 +27,8 @@ import librosa
 # Import mood analysis functions from analyze_mood.py
 sys.path.insert(0, os.path.dirname(__file__))
 from analyze_mood import analyze, tag_mood, KEY_NAMES
+
+DB_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "tracks.json")
 
 
 def is_url(s: str) -> bool:
@@ -252,12 +256,82 @@ def print_report(filepath: str, features: dict, tags: list[str], title: str, pro
     print(f"\n{'='*60}\n")
 
 
+def extract_youtube_id(url: str) -> str | None:
+    """Extract video ID from a YouTube URL."""
+    patterns = [
+        r'(?:v=|/v/|youtu\.be/)([a-zA-Z0-9_-]{11})',
+        r'(?:embed/)([a-zA-Z0-9_-]{11})',
+    ]
+    for pat in patterns:
+        m = re.search(pat, url)
+        if m:
+            return m.group(1)
+    return None
+
+
+def save_to_db(youtube_id: str | None, title: str, features: dict, tags: list[str],
+               prompt: str, source_url: str = ""):
+    """Save analysis results to the track database."""
+    os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
+
+    # Load existing database
+    if os.path.exists(DB_PATH):
+        with open(DB_PATH, "r", encoding="utf-8") as f:
+            db = json.load(f)
+    else:
+        db = {"tracks": []}
+
+    # Build track entry
+    entry = {
+        "title": title,
+        "youtube_id": youtube_id or "",
+        "game": "",
+        "category": "",
+        "aliases": [],
+        "key": features.get("key", ""),
+        "mode": features.get("mode", ""),
+        "key_confidence": features.get("key_confidence"),
+        "bpm": features.get("tempo"),
+        "bpm_feel": None,
+        "energy": features.get("energy"),
+        "brightness": features.get("brightness"),
+        "density": features.get("density"),
+        "rhythm": features.get("rhythmic_activity"),
+        "duration": features.get("duration"),
+        "tags": tags,
+        "audial_prompt": prompt,
+        "notes": "",
+    }
+
+    # Check if track already exists (by youtube_id)
+    if youtube_id:
+        for i, t in enumerate(db["tracks"]):
+            if t.get("youtube_id") == youtube_id:
+                # Update existing entry (preserve game/category/aliases/notes)
+                entry["game"] = t.get("game", "")
+                entry["category"] = t.get("category", "")
+                entry["aliases"] = t.get("aliases", [])
+                entry["notes"] = t.get("notes", "")
+                entry["bpm_feel"] = t.get("bpm_feel")
+                db["tracks"][i] = entry
+                break
+        else:
+            db["tracks"].append(entry)
+    else:
+        db["tracks"].append(entry)
+
+    # Save
+    with open(DB_PATH, "w", encoding="utf-8") as f:
+        json.dump(db, f, indent=2, ensure_ascii=False)
+
+
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python tools/reference_track.py <youtube_url_or_file> [--keep]")
+        print("Usage: python tools/reference_track.py <youtube_url_or_file> [--keep] [--no-save]")
         print()
         print("  Analyzes a reference track and generates an Audial prompt.")
-        print("  --keep  Keep the downloaded audio file")
+        print("  --keep     Keep the downloaded audio file")
+        print("  --no-save  Don't save to the track database")
         print()
         print("Examples:")
         print('  python tools/reference_track.py "https://youtube.com/watch?v=dQw4w9WgXcQ"')
@@ -266,9 +340,12 @@ def main():
 
     source = sys.argv[1]
     keep_file = "--keep" in sys.argv
+    no_save = "--no-save" in sys.argv
 
+    youtube_id = None
     if is_url(source):
         # Download from YouTube
+        youtube_id = extract_youtube_id(source)
         title = get_video_title(source)
         print(f"  track: {title}")
 
@@ -282,7 +359,7 @@ def main():
     else:
         # Local file
         filepath = source
-        title = ""
+        title = os.path.splitext(os.path.basename(source))[0]
         if not os.path.exists(filepath):
             print(f"Error: file not found: {filepath}")
             sys.exit(1)
@@ -300,6 +377,10 @@ def main():
         prompt = generate_audial_prompt(features, tags, title)
 
         print_report(filepath, features, tags, title, prompt, sections)
+
+        # Auto-save to database
+        if not no_save:
+            save_to_db(youtube_id, title, features, tags, prompt, source)
 
         if keep_file and is_url(source):
             print(f"  Audio saved: {filepath}")
