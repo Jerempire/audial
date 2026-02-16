@@ -6,10 +6,21 @@ Audial generates electronic/ambient music from text descriptions using AI + Stru
 
 ### Setup
 1. `pnpm dev` → open `localhost:3000`
-2. Settings (gear icon) → pick model → enter Anthropic API key → save
+2. Settings (gear icon) → pick model → enter API key → save
 3. Type a description → AI generates Strudel code → click Play
 4. Iterate: "make it darker", "add reverb", "slower", etc.
 5. Click `.wav` button → pick duration (15s–5m) → downloads a WAV file
+
+### Keyboard Shortcuts
+- **Space** — play/stop (when not typing in the input)
+- **Ctrl+E** — export WAV (30s default)
+- **Ctrl+Shift+N** — new song (clear everything)
+
+### Preset Songs
+Click any preset button (pink row) to instantly load an atmospheric composition — no API key needed. Available: Medieval Cathedral, Ancient Ruins, Renaissance Court, Gothic Horror, Impressionist Garden, War Drums.
+
+### Dark Mode
+Click the moon icon in the header to toggle dark mode. Preference is saved.
 
 ### Audial Prompt Examples (Art/Historical)
 
@@ -89,6 +100,77 @@ Audial generates electronic/ambient music from text descriptions using AI + Stru
 
 ---
 
+## Reference Track Analyzer
+
+Found a track on YouTube or Spotify that has the vibe you want? Analyze it and get an Audial prompt.
+
+### Usage
+
+```bash
+# YouTube → analysis + Audial prompt
+python tools/reference_track.py "https://youtube.com/watch?v=..."
+
+# Keep the downloaded audio file
+python tools/reference_track.py "https://youtube.com/watch?v=..." --keep
+
+# Local file (mp3, wav, flac, etc.)
+python tools/reference_track.py path/to/song.mp3
+```
+
+### What It Gives You
+- **Key detection** — e.g., "C major (confidence: 0.86)"
+- **Tempo** — BPM
+- **Energy, brightness, density, rhythm** — 0–1 scale with visual bars
+- **Track evolution** — how energy/brightness/key change over time (15s sections)
+- **Ready-to-paste Audial prompt** — captures the vibe in one line
+
+### Example Output
+```
+  Tempo:     117.5 BPM
+  Key:       C major (confidence: 0.86)
+
+  Energy       [####################] 1.00
+  Brightness   [#######-------------] 0.38
+  Density      [##############------] 0.74
+
+  AUDIAL PROMPT:
+  uplifting, intense, moderate tempo around 117 bpm, in C major, layered and dense
+```
+
+### Workflow: Recreate a Vibe
+1. Find a YouTube track with the mood you want
+2. `python tools/reference_track.py "URL"`
+3. Copy the generated Audial prompt
+4. Paste into Audial → AI generates a Strudel interpretation
+5. Iterate: "more like the original but slower", "add the same kind of reverb", etc.
+
+### Requirements
+- `pip install yt-dlp librosa soundfile imageio-ffmpeg`
+
+---
+
+## Mood Analyzer (for your own exports)
+
+Analyze any WAV file you've exported from Audial to understand its characteristics.
+
+```bash
+# Human-readable report
+python tools/analyze_mood.py path/to/export.wav
+
+# Machine-readable JSON
+python tools/analyze_mood.py path/to/export.wav --json
+```
+
+Outputs key, tempo, energy, brightness, density, rhythm, mood tags, and suggested Audial prompts for adjustment.
+
+---
+
+## Copy for Claude (Feedback Loop)
+
+Click the **"copy for claude"** button in Audial's controls to copy your current code + recent chat history. Paste it into Claude Code and describe what you hear — Claude reads the Strudel code and suggests changes.
+
+---
+
 ## Choosing the Right Tool
 
 | Scenario | Best Tool |
@@ -105,8 +187,11 @@ Audial generates electronic/ambient music from text descriptions using AI + Stru
 
 ## Workflow: Art Project Soundtrack
 
-1. **Start in Audial** — experiment with mood and texture ("dark ambient drone, medieval, haunting")
-2. **Iterate** — refine through conversation ("more reverb", "add distant bells", "slower")
-3. **Export WAV** — download when it sounds right
-4. **Optional**: Use Suno/AIVA for a polished companion track with real instrument sounds
-5. **Layer** — combine Audial's textures with polished tracks in any audio editor (Audacity, etc.)
+1. **Find inspiration** — run `python tools/reference_track.py "YouTube URL"` on tracks with the right vibe
+2. **Start in Audial** — paste the generated prompt, or try a preset, or describe from scratch
+3. **Iterate** — refine through conversation ("more reverb", "add distant bells", "slower")
+4. **Get feedback** — click "copy for claude" → paste in Claude Code → describe what you hear
+5. **Analyze** — run `python tools/analyze_mood.py export.wav` to verify the mood matches your intent
+6. **Export WAV** — download when it sounds right
+7. **Optional**: Use Suno/AIVA for a polished companion track with real instrument sounds
+8. **Layer** — combine Audial's textures with polished tracks in any audio editor (Audacity, etc.)
