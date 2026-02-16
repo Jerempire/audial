@@ -7,15 +7,45 @@
       "source_path": "presets/medieval-cathedral",
       "snippet": "setcpm(50)\n\n// organ drone\n$: note(\"<[d2,a2,d3] [c2,g2,c3] [bb1,f2,bb2] [c2,g2,c3]>\")\n  .s(\"sawtooth\")\n  .lpf(400)\n  .gain(0.25)\n  .slow(4)\n  .room(0.8)\n\n// high overtones\n$: note(\"d5 ~ ~ a5 ~ ~ f5 ~ ~ g5 ~ ~\")\n  .s(\"sine\")\n  .gain(0.1)\n  .delay(0.5)\n  .room(0.9)\n  .slow(3)\n\n// bell\n$: note(\"d6 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~\")\n  .s(\"sine\")\n  .gain(0.08)\n  .room(0.95)\n  .delay(0.7)\n  .slow(4)\n\n// sub bass\n$: note(\"d2 ~ ~ ~ c2 ~ ~ ~ bb1 ~ ~ ~ c2 ~ ~ ~\")\n  .s(\"sine\")\n  .lpf(120)\n  .gain(0.3)\n  .slow(4)",
       "slug": "medievalcathedral",
-      "title_tokens": ["medieval", "cathedral"],
-      "path_tokens": ["presets", "medieval", "cathedral"],
-      "aliases": ["cathedral", "church organ", "sacred drone"],
-      "genres": ["ambient", "sacred"],
-      "moods": ["dark", "solemn", "reverent"],
-      "techniques": ["drone", "reverb", "slow-evolving"],
-      "instruments": ["sawtooth", "sine"],
+      "title_tokens": [
+        "medieval",
+        "cathedral"
+      ],
+      "path_tokens": [
+        "presets",
+        "medieval",
+        "cathedral"
+      ],
+      "aliases": [
+        "cathedral",
+        "church organ",
+        "sacred drone"
+      ],
+      "genres": [
+        "ambient",
+        "sacred"
+      ],
+      "moods": [
+        "dark",
+        "solemn",
+        "reverent"
+      ],
+      "techniques": [
+        "drone",
+        "reverb",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "sine"
+      ],
       "bpm": 50,
-      "prompt_seeds": ["dark sacred cathedral", "church organ drone", "medieval monastery", "solemn prayer"]
+      "prompt_seeds": [
+        "dark sacred cathedral",
+        "church organ drone",
+        "medieval monastery",
+        "solemn prayer"
+      ]
     },
     {
       "id": "preset-ancient-ruins",
@@ -24,15 +54,46 @@
       "source_path": "presets/ancient-ruins",
       "snippet": "setcpm(40)\n\n// wind drone\n$: note(\"<[e3,b3] [d3,a3] [e3,b3] [f#3,c#4]>\")\n  .s(\"sawtooth\")\n  .lpf(600)\n  .gain(0.15)\n  .slow(4)\n  .room(0.7)\n\n// metallic resonance\n$: note(\"e5 ~ ~ ~ ~ b5 ~ ~ ~ ~ g5 ~ ~ ~ ~ ~\")\n  .s(\"triangle\")\n  .gain(0.08)\n  .delay(0.6)\n  .room(0.85)\n  .slow(3)\n\n// sparse percussion\n$: s(\"~ ~ hh ~ ~ ~ hh ~ ~ ~ ~ ~ ~ hh ~ ~\")\n  .gain(0.12)\n  .lpf(3000)\n  .room(0.6)\n  .slow(2)\n\n// deep earth hum\n$: note(\"e2\")\n  .s(\"sine\")\n  .lpf(100)\n  .gain(0.2)\n  .slow(8)",
       "slug": "ancientruins",
-      "title_tokens": ["ancient", "ruins"],
-      "path_tokens": ["presets", "ancient", "ruins"],
-      "aliases": ["ruins", "desert ruins", "abandoned temple"],
-      "genres": ["ambient"],
-      "moods": ["mysterious", "sparse", "desolate"],
-      "techniques": ["drone", "sparse-percussion", "reverb"],
-      "instruments": ["sawtooth", "triangle", "sine", "hh"],
+      "title_tokens": [
+        "ancient",
+        "ruins"
+      ],
+      "path_tokens": [
+        "presets",
+        "ancient",
+        "ruins"
+      ],
+      "aliases": [
+        "ruins",
+        "desert ruins",
+        "abandoned temple"
+      ],
+      "genres": [
+        "ambient"
+      ],
+      "moods": [
+        "mysterious",
+        "sparse",
+        "desolate"
+      ],
+      "techniques": [
+        "drone",
+        "sparse-percussion",
+        "reverb"
+      ],
+      "instruments": [
+        "sawtooth",
+        "triangle",
+        "sine",
+        "hh"
+      ],
       "bpm": 40,
-      "prompt_seeds": ["mysterious ancient ruins", "desert exploration", "abandoned temple", "sparse ambient"]
+      "prompt_seeds": [
+        "mysterious ancient ruins",
+        "desert exploration",
+        "abandoned temple",
+        "sparse ambient"
+      ]
     },
     {
       "id": "preset-renaissance-court",
@@ -41,15 +102,47 @@
       "source_path": "presets/renaissance-court",
       "snippet": "setcpm(72)\n\n// plucked strings\n$: note(\"[g4 b4 d5] [a4 c5 e5] [f#4 a4 d5] [g4 b4 d5]\")\n  .s(\"triangle\")\n  .gain(0.2)\n  .delay(0.2)\n  .room(0.4)\n  .slow(2)\n\n// bass movement\n$: note(\"g3 ~ d3 ~ a3 ~ d3 ~ f#3 ~ d3 ~ g3 ~ d3 ~\")\n  .s(\"sawtooth\")\n  .lpf(500)\n  .gain(0.25)\n  .slow(2)\n\n// melodic ornament\n$: note(\"~ d5 ~ g5 ~ b5 ~ a5 ~ ~ d5 ~ f#5 ~ ~ ~\")\n  .s(\"sine\")\n  .gain(0.12)\n  .delay(0.3)\n  .room(0.5)\n  .slow(2)\n\n// gentle pulse\n$: s(\"~ ~ bd ~ ~ ~ ~ ~\")\n  .gain(0.15)\n  .lpf(200)\n  .room(0.3)",
       "slug": "renaissancecourt",
-      "title_tokens": ["renaissance", "court"],
-      "path_tokens": ["presets", "renaissance", "court"],
-      "aliases": ["courtly dance", "baroque", "classical dance"],
-      "genres": ["classical", "early-music"],
-      "moods": ["warm", "elegant", "graceful"],
-      "techniques": ["arpeggios", "plucked-strings", "delay"],
-      "instruments": ["triangle", "sawtooth", "sine", "bd"],
+      "title_tokens": [
+        "renaissance",
+        "court"
+      ],
+      "path_tokens": [
+        "presets",
+        "renaissance",
+        "court"
+      ],
+      "aliases": [
+        "courtly dance",
+        "baroque",
+        "classical dance"
+      ],
+      "genres": [
+        "classical",
+        "early-music"
+      ],
+      "moods": [
+        "warm",
+        "elegant",
+        "graceful"
+      ],
+      "techniques": [
+        "arpeggios",
+        "plucked-strings",
+        "delay"
+      ],
+      "instruments": [
+        "triangle",
+        "sawtooth",
+        "sine",
+        "bd"
+      ],
       "bpm": 72,
-      "prompt_seeds": ["renaissance court dance", "elegant classical", "baroque ballroom", "courtly music"]
+      "prompt_seeds": [
+        "renaissance court dance",
+        "elegant classical",
+        "baroque ballroom",
+        "courtly music"
+      ]
     },
     {
       "id": "preset-gothic-horror",
@@ -58,15 +151,47 @@
       "source_path": "presets/gothic-horror",
       "snippet": "setcpm(55)\n\n// dissonant cluster\n$: note(\"<[c3,f#3,b3] [db3,g3,c4] [c3,gb3,bb3] [d3,ab3,c4]>\")\n  .s(\"sawtooth\")\n  .lpf(700)\n  .gain(0.2)\n  .slow(4)\n  .room(0.85)\n\n// high tension\n$: note(\"b5 ~ c6 ~ ~ ~ bb5 ~ ~ ~ c6 ~ ~ ~ ~ ~\")\n  .s(\"square\")\n  .lpf(2000)\n  .gain(0.06)\n  .delay(0.7)\n  .room(0.9)\n  .slow(3)\n\n// heartbeat\n$: s(\"bd ~ ~ ~ ~ bd ~ ~ ~ ~ ~ ~ ~ bd ~ ~\")\n  .gain(0.3)\n  .lpf(80)\n  .room(0.4)\n  .slow(2)\n\n// distant screech\n$: note(\"~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ c7\")\n  .s(\"sawtooth\")\n  .lpf(6000)\n  .hpf(2000)\n  .gain(0.04)\n  .delay(0.8)\n  .room(0.95)\n  .slow(8)",
       "slug": "gothichorror",
-      "title_tokens": ["gothic", "horror"],
-      "path_tokens": ["presets", "gothic", "horror"],
-      "aliases": ["horror", "gothic", "haunted"],
-      "genres": ["dark ambient", "horror"],
-      "moods": ["dark", "tense", "dread"],
-      "techniques": ["dissonance", "tritone", "reverb", "sub-bass-pulse"],
-      "instruments": ["sawtooth", "square", "bd"],
+      "title_tokens": [
+        "gothic",
+        "horror"
+      ],
+      "path_tokens": [
+        "presets",
+        "gothic",
+        "horror"
+      ],
+      "aliases": [
+        "horror",
+        "gothic",
+        "haunted"
+      ],
+      "genres": [
+        "dark ambient",
+        "horror"
+      ],
+      "moods": [
+        "dark",
+        "tense",
+        "dread"
+      ],
+      "techniques": [
+        "dissonance",
+        "tritone",
+        "reverb",
+        "sub-bass-pulse"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "bd"
+      ],
       "bpm": 55,
-      "prompt_seeds": ["gothic horror atmosphere", "haunted castle", "dark tense dread", "horror soundtrack"]
+      "prompt_seeds": [
+        "gothic horror atmosphere",
+        "haunted castle",
+        "dark tense dread",
+        "horror soundtrack"
+      ]
     },
     {
       "id": "preset-impressionist-garden",
@@ -75,15 +200,45 @@
       "source_path": "presets/impressionist-garden",
       "snippet": "setcpm(80)\n\n// soft arpeggios\n$: note(\"[c4 e4 g4 b4] [d4 f4 a4 c5] [e4 g4 b4 d5] [f4 a4 c5 e5]\")\n  .s(\"sine\")\n  .gain(0.15)\n  .delay(0.3)\n  .room(0.5)\n  .slow(2)\n\n// pad\n$: note(\"<[c3,e3,g3,b3] [d3,f3,a3,c4] [e3,g3,b3] [f3,a3,c4]>\")\n  .s(\"sawtooth\")\n  .lpf(900)\n  .gain(0.18)\n  .slow(4)\n  .room(0.4)\n\n// melody fragments\n$: note(\"~ g5 ~ ~ e5 ~ ~ ~ b5 ~ ~ ~ c5 ~ ~ ~\")\n  .s(\"sine\")\n  .gain(0.1)\n  .delay(0.4)\n  .room(0.6)\n  .slow(2)\n\n// bass\n$: note(\"c3 ~ ~ ~ d3 ~ ~ ~ e3 ~ ~ ~ f3 ~ ~ ~\")\n  .s(\"sine\")\n  .lpf(250)\n  .gain(0.2)\n  .slow(4)",
       "slug": "impressionistgarden",
-      "title_tokens": ["impressionist", "garden"],
-      "path_tokens": ["presets", "impressionist", "garden"],
-      "aliases": ["garden", "impressionist", "debussy"],
-      "genres": ["ambient", "impressionist"],
-      "moods": ["bright", "gentle", "serene"],
-      "techniques": ["arpeggios", "seventh-chords", "delay"],
-      "instruments": ["sine", "sawtooth"],
+      "title_tokens": [
+        "impressionist",
+        "garden"
+      ],
+      "path_tokens": [
+        "presets",
+        "impressionist",
+        "garden"
+      ],
+      "aliases": [
+        "garden",
+        "impressionist",
+        "debussy"
+      ],
+      "genres": [
+        "ambient",
+        "impressionist"
+      ],
+      "moods": [
+        "bright",
+        "gentle",
+        "serene"
+      ],
+      "techniques": [
+        "arpeggios",
+        "seventh-chords",
+        "delay"
+      ],
+      "instruments": [
+        "sine",
+        "sawtooth"
+      ],
       "bpm": 80,
-      "prompt_seeds": ["impressionist garden", "bright gentle ambient", "serene nature", "debussy inspired"]
+      "prompt_seeds": [
+        "impressionist garden",
+        "bright gentle ambient",
+        "serene nature",
+        "debussy inspired"
+      ]
     },
     {
       "id": "preset-war-drums",
@@ -92,17 +247,2445 @@
       "source_path": "presets/war-drums",
       "snippet": "setcpm(100)\n\n// war drums\n$: s(\"bd bd ~ bd ~ bd bd ~ bd ~ ~ bd ~ bd bd ~\")\n  .gain(0.4)\n  .lpf(200)\n  .room(0.3)\n\n// snare rolls\n$: s(\"~ ~ ~ ~ sn ~ ~ sn ~ ~ sn ~ ~ ~ sn:2 ~\")\n  .gain(0.25)\n  .lpf(4000)\n  .room(0.2)\n\n// horn call\n$: note(\"<[d4,a4] ~ ~ ~ [c4,g4] ~ ~ ~ [d4,a4] ~ [e4,b4] ~ [d4,a4] ~ ~ ~>\")\n  .s(\"sawtooth\")\n  .lpf(1200)\n  .gain(0.2)\n  .slow(2)\n  .room(0.4)\n\n// sub bass\n$: note(\"d2 ~ d2 ~ ~ d2 ~ ~ d2 ~ ~ ~ d2 d2 ~ ~\")\n  .s(\"sine\")\n  .lpf(80)\n  .gain(0.35)\n\n// cymbal crashes\n$: s(\"~ ~ ~ ~ ~ ~ ~ oh ~ ~ ~ ~ ~ ~ ~ ~\")\n  .gain(0.15)\n  .lpf(6000)\n  .room(0.5)",
       "slug": "wardrums",
-      "title_tokens": ["war", "drums"],
-      "path_tokens": ["presets", "war", "drums"],
-      "aliases": ["battle drums", "tribal drums", "epic drums"],
-      "genres": ["cinematic", "percussion"],
-      "moods": ["intense", "epic", "aggressive"],
-      "techniques": ["heavy-percussion", "sub-bass", "horn-stabs"],
-      "instruments": ["bd", "sn", "oh", "sawtooth", "sine"],
+      "title_tokens": [
+        "war",
+        "drums"
+      ],
+      "path_tokens": [
+        "presets",
+        "war",
+        "drums"
+      ],
+      "aliases": [
+        "battle drums",
+        "tribal drums",
+        "epic drums"
+      ],
+      "genres": [
+        "cinematic",
+        "percussion"
+      ],
+      "moods": [
+        "intense",
+        "epic",
+        "aggressive"
+      ],
+      "techniques": [
+        "heavy-percussion",
+        "sub-bass",
+        "horn-stabs"
+      ],
+      "instruments": [
+        "bd",
+        "sn",
+        "oh",
+        "sawtooth",
+        "sine"
+      ],
       "bpm": 100,
-      "prompt_seeds": ["epic war drums", "battle percussion", "intense tribal rhythm", "cinematic epic"]
+      "prompt_seeds": [
+        "epic war drums",
+        "battle percussion",
+        "intense tribal rhythm",
+        "cinematic epic"
+      ]
+    },
+    {
+      "id": "jrpg-descendantofshinobi",
+      "title": "Descendant of Shinobi",
+      "author": "Final Fantasy VII",
+      "source_path": "generated/descendantofshinobi",
+      "snippet": "setcpm(107/4)\n\n$: note(\"g3 [~ a3] [~ d4] [~ g3]\")\n.s(\"sine\")\n.gain(0.35)\n.lpf(800)\n.room(0.6)\n\n$: note(\"<[g4 a4] [d5 ~] [g4 ~] [~ c5]>\")\n.s(\"triangle\")\n.gain(0.25)\n.delay(0.4)\n.room(0.5)\n.pan(0.6)\n\n$: note(\"[g2 d3]/4\")\n.s(\"sawtooth\")\n.gain(0.3)\n.lpf(400)\n.room(0.7)\n\n$: note(\"[[~ g5] ~ [a5 ~] [~ d5]] [[~ c5] ~ ~ [b4 ~]]\")\n.s(\"sine\")\n.gain(0.2)\n.delay(0.5)\n.room(0.6)\n.pan(0.4)\n.hpf(600)\n\n$: s(\"[~ rim]*2, [~ ~  bd ~]\")\n.gain(0.15)\n.room(0.4)\n\n$: note(\"<g5 a5 d6 c6>\")\n.s(\"triangle\")\n.gain(0.18)\n.delay(0.6)\n.room(0.8)\n.lpf(1200)\n.pan(rand.segment(8).range(0.3, 0.7))",
+      "slug": "descendantofshinobi",
+      "title_tokens": [
+        "descendant",
+        "of",
+        "shinobi"
+      ],
+      "path_tokens": [
+        "generated",
+        "descendant",
+        "of",
+        "shinobi"
+      ],
+      "aliases": [],
+      "genres": [
+        "jrpg",
+        "game-ost"
+      ],
+      "moods": [
+        "mysterious",
+        "gentle"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering"
+      ],
+      "instruments": [
+        "sawtooth",
+        "sine",
+        "triangle",
+        "bd",
+        "rim"
+      ],
+      "bpm": 107,
+      "prompt_seeds": [
+        "mysterious, gentle, contemplative around 107 bpm, in G major, sparse melodic fragments, Eastern-influenced intervals, soft pad drone, quiet village atmosphere, hidden tradition, subtle and reverent",
+        "mysterious, gentle, contemplative, eastern"
+      ]
+    },
+    {
+      "id": "jrpg-zelbess",
+      "title": "Zelbess",
+      "author": "Chrono Cross",
+      "source_path": "generated/zelbess",
+      "snippet": "setcpm(116)\n\n$: s(\"bd*2, [~ sd]*2, [hh oh]*4\")\n  .gain(\"0.35, 0.3, 0.25\")\n  .room(0.2)\n  .pan(perlin.range(0.4, 0.6))\n\n$: note(\"<[c2 e2 g2 c3] [a1 c2 e2 a2] [f2 a2 c3 f3] [g2 b2 d3 g3]>\")\n  .s(\"triangle\")\n  .gain(0.4)\n  .lpf(800)\n  .delay(0.2)\n  .room(0.3)\n\n$: note(\"<<[c4 e4 g4 b4 c5] [a3 c4 e4 g4 a4]> <[f4 a4 c5 e5 f5] [g4 b4 d5 f5 g5]>>\")\n  .s(\"sine\")\n  .gain(0.28)\n  .delay(0.35)\n  .delaytime(0.125)\n  .room(0.4)\n  .pan(perlin.range(0.3, 0.7))\n\n$: note(\"<c3 [c3 e3] a2 [a2 c3] f3 [f3 a3] g2 [g2 b2]>\")\n  .s(\"sawtooth\")\n  .gain(0.45)\n  .lpf(600)\n  .room(0.15)\n\n$: note(\"[[e5 g5]*2 [d5 f5]*2] [[c5 e5]*2 [b4 d5]*2]\")\n  .s(\"square\")\n  .gain(0.25)\n  .lpf(2800)\n  .delay(0.3)\n  .delaytime(0.1875)\n  .pan(sine.range(0.2, 0.8))\n  .room(0.5)\n\n$: s(\"~ rim ~ rim:1\").gain(0.22).pan(0.3)",
+      "slug": "zelbess",
+      "title_tokens": [
+        "zelbess"
+      ],
+      "path_tokens": [
+        "generated",
+        "zelbess"
+      ],
+      "aliases": [],
+      "genres": [
+        "jrpg",
+        "game-ost"
+      ],
+      "moods": [
+        "warm"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "bd",
+        "sd",
+        "oh",
+        "rim"
+      ],
+      "bpm": null,
+      "prompt_seeds": [
+        "lively, warm, swinging rhythm, nautical jazz atmosphere, plucked bass movement, bright melodic arpeggios, ship deck at sunset, playful and buoyant",
+        "lively, warm, nautical, jazz"
+      ]
+    },
+    {
+      "id": "jrpg-breezy",
+      "title": "Breezy",
+      "author": "Final Fantasy VIII",
+      "source_path": "generated/breezy",
+      "snippet": "setcpm(107/4)\n\n$: note(\"d2 a2 [~ f2] g2\").s(\"sawtooth\").lpf(200).room(0.9).gain(0.35)\n\n$: note(\"<d3 a2 f3 g2>\").s(\"triangle\").lpf(180).delay(0.4).room(0.8).gain(0.3)\n\n$: note(\"d4 [~ a3] f4 [g4 ~]\").slow(2).s(\"sine\").lpf(250).room(0.7).gain(0.25)\n\n$: note(\"<a3 [f3 d3] g3 [~ d3]>\").s(\"sawtooth\").lpf(220).delay(0.3).room(0.85).gain(0.28).pan(sine.slow(8))\n\n$: note(\"[d3 ~ a3 ~] [~ f3 ~ g3]\").slow(3).s(\"triangle\").lpf(190).room(0.95).gain(0.2).pan(cosine.slow(12))",
+      "slug": "breezy",
+      "title_tokens": [
+        "breezy"
+      ],
+      "path_tokens": [
+        "generated",
+        "breezy"
+      ],
+      "aliases": [],
+      "genres": [
+        "jrpg",
+        "game-ost"
+      ],
+      "moods": [
+        "warm",
+        "gentle",
+        "dark"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "sine",
+        "triangle"
+      ],
+      "bpm": 107,
+      "prompt_seeds": [
+        "warm, gentle, intimate around 107 bpm, in D major, extremely low brightness, deep warm pads only, soft flowing melodic fragments, fields and wind, zero high frequencies, pure bass warmth, tender and spacious",
+        "warm, gentle, intimate, dark"
+      ]
+    },
+    {
+      "id": "jrpg-silencebeforethestorm",
+      "title": "Silence Before the Storm",
+      "author": "Final Fantasy X",
+      "source_path": "generated/silencebeforethestorm",
+      "snippet": "setcpm(86/4)\n\n$: note(\"<[bb4 d5 f5] [d5 f5 a5] [eb5 g5 bb5] [f5 a5 c6]>\")\n.s(\"triangle\")\n.lpf(2000)\n.delay(0.4)\n.room(0.9)\n.gain(0.25)\n\n$: note(\"<bb3 f3 g3 eb3>*2\")\n.s(\"sine\")\n.lpf(800)\n.room(0.7)\n.gain(0.35)\n\n$: note(\"<<bb5 d6 f6 a6> <d6 f6 a6 c7> <eb6 g6 bb6 d7> <f6 a6 c7 eb7>>\".fast(0.25))\n.s(\"square\")\n.lpf(3000)\n.delay(0.6)\n.room(0.95)\n.gain(0.18)\n\n$: note(\"[bb6 ~ f6 ~]*2\")\n.s(\"sine\")\n.lpf(4000)\n.delay(0.5)\n.room(0.85)\n.pan(sine.slow(8))\n.gain(0.22)\n\n$: note(\"<d6 [~ f6] [a6 ~] [~ c7]>\")\n.s(\"triangle\")\n.hpf(1000)\n.delay(0.7)\n.room(0.9)\n.pan(cosine.slow(6))\n.gain(0.2)\n\n$: s(\"[~ hh]*4\")\n.gain(\"[0.15 0.1]*4\")\n.lpf(8000)\n.room(0.6)",
+      "slug": "silencebeforethestorm",
+      "title_tokens": [
+        "silence",
+        "before",
+        "the",
+        "storm"
+      ],
+      "path_tokens": [
+        "generated",
+        "silence",
+        "before",
+        "the",
+        "storm"
+      ],
+      "aliases": [
+        "Macalania"
+      ],
+      "genres": [
+        "jrpg",
+        "game-ost"
+      ],
+      "moods": [
+        "ethereal",
+        "gentle"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "square",
+        "sine",
+        "triangle",
+        "hh"
+      ],
+      "bpm": 86,
+      "prompt_seeds": [
+        "ethereal, crystalline, gentle around 86 bpm, in Bb major, shimmering frozen forest, ice crystal textures, soft melodic fragments, magical and serene, moonlight on snow, bittersweet calm before the end",
+        "ethereal, crystalline, gentle, bittersweet"
+      ]
+    },
+    {
+      "id": "jrpg-manwiththemachinegun",
+      "title": "Man with the Machine Gun",
+      "author": "Final Fantasy VIII",
+      "source_path": "generated/manwiththemachinegun",
+      "snippet": "setcpm(143)\n\n$: note(\"d3 [~ d3] d3 [d3 ~]\").s(\"sawtooth\").lpf(800).gain(0.45)\n\n$: note(\"<[a4 d5 fs5] [b4 e5 g5] [g4 d5 fs5] [a4 cs5 e5]>\").s(\"supersaw\").lpf(4000).delay(0.2).gain(0.35).pan(perlin.range(0.3,0.7))\n\n$: note(\"d6 [fs6 a6] [d6 fs6] [a6 b6] d7 [fs6 g6] [a6 d7] [b6 cs7]\".fast(2)).s(\"square\").lpf(6000).hpf(1200).gain(0.25).pan(sine.range(0.2,0.8))\n\n$: note(\"[d5 fs5 a5]*4\").s(\"sawtooth\").lpf(2800).hpf(400).delay(0.15).gain(0.3)\n\n$: note(\"d7 [a6 d7 fs7] [b6 d7] [fs7 a7] [d7 fs7] a7 [g7 b7] [a7 d8]\".fast(1.5)).s(\"sine\").hpf(2000).delay(0.3).gain(0.2).pan(perlin)\n\n$: note(\"[d4 ~ d4 ~]*2\").s(\"sawtooth\").lpf(600).gain(0.4)\n\n$: s(\"bd*4, sd(3,8), [hh*8 oh*4], cp(5,16)\").gain(0.35).room(0.2)\n\n$: note(\"<d6 fs6 a6 b6>*16\".fast(1.5)).s(\"triangle\").hpf(3000).delay(0.25).gain(0.18).pan(saw.range(0,1))\n\n$: note(\"[a5 d6]*8\").s(\"square\").lpf(5000).hpf(800).gain(0.28)\n\n$: s(\"rim(7,16)\").gain(0.25).hpf(8000)",
+      "slug": "manwiththemachinegun",
+      "title_tokens": [
+        "man",
+        "with",
+        "the",
+        "machine",
+        "gun"
+      ],
+      "path_tokens": [
+        "generated",
+        "man",
+        "with",
+        "the",
+        "machine",
+        "gun"
+      ],
+      "aliases": [
+        "Laguna Battle"
+      ],
+      "genres": [
+        "jrpg",
+        "game-ost"
+      ],
+      "moods": [
+        "aggressive"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "supersaw",
+        "bd",
+        "sd",
+        "oh",
+        "cp",
+        "rim"
+      ],
+      "bpm": 143,
+      "prompt_seeds": [
+        "aggressive, blazing, high-energy around 143 bpm, in D major, extremely dense layered textures, bright shimmering highs, driving pulse, raw combat adrenaline, sharp sawtooth leads, relentless and electrifying",
+        "aggressive, blazing, high-energy, battle"
+      ]
+    },
+    {
+      "id": "animeost-tenjinnoongakuprincesskaguya",
+      "title": "Tenjin no Ongaku — Princess Kaguya",
+      "author": "The Tale of Princess Kaguya",
+      "source_path": "generated/tenjinnoongakuprincesskaguya",
+      "snippet": "setcpm(99/4)\n\n$: note(\"b3 [<fs4 ds4> <gs4 e4>] <cs4 [fs3 b3]>\")\n.s(\"sine\")\n.lpf(sine.range(800,1200).slow(8))\n.room(0.9)\n.delay(0.5)\n.gain(0.3)\n\n$: note(\"<b4 fs5 ds5 gs5> <cs5 e5 as4 fs5> <gs4 b4 fs5 ds5> <e5 cs5 b4 gs5>\")\n.s(\"triangle\")\n.lpf(1800)\n.room(0.8)\n.delay(0.4)\n.pan(sine.slow(16))\n.gain(0.25)\n\n$: note(\"b2 [b2 fs3] <b2 [fs2 b2]>\")\n.s(\"sawtooth\")\n.lpf(400)\n.room(0.5)\n.gain(0.35)\n\n$: note(\"b5 <fs6 ds6 gs6 cs6> <e6 b5 fs6 as6>\")\n.s(\"sine\")\n.lpf(3000)\n.room(0.95)\n.delay(0.6)\n.pan(cosine.slow(13))\n.gain(0.2)\n\n$: note(\"[b6 fs6 ds6] [cs7 gs6 e6] [fs6 b6 as6] [gs6 ds7 b6]\")\n.s(\"triangle\")\n.hpf(2000)\n.room(0.9)\n.delay(0.7)\n.gain(0.18)\n\n$: note(\"<[b3 ds4 fs4] [cs4 e4 gs4] [ds4 fs4 b4] [e4 gs4 cs5]>\")\n.s(\"supersaw\")\n.lpf(sine.range(1200,2400).slow(12))\n.room(0.85)\n.gain(0.22)",
+      "slug": "tenjinnoongakuprincesskaguya",
+      "title_tokens": [
+        "tenjin",
+        "no",
+        "ongaku",
+        "—",
+        "princess",
+        "kaguya"
+      ],
+      "path_tokens": [
+        "generated",
+        "tenjin",
+        "no",
+        "ongaku",
+        "—",
+        "princess",
+        "kaguya"
+      ],
+      "aliases": [],
+      "genres": [
+        "anime",
+        "game-ost"
+      ],
+      "moods": [
+        "ethereal"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "sine",
+        "triangle",
+        "supersaw"
+      ],
+      "bpm": 99,
+      "prompt_seeds": [
+        "ethereal, luminous, celestial around 99 bpm, in B major, divine music atmosphere, dense layered beauty, transcendent and otherworldly",
+        "ethereal, luminous, celestial, transcendent"
+      ]
+    },
+    {
+      "id": "celtic-jigsmerrilykissedthequakercunla",
+      "title": "Jigs (Merrily Kissed the Quaker Cunla)",
+      "author": "Celtic",
+      "source_path": "generated/jigsmerrilykissedthequakercunla",
+      "snippet": "setcpm(123)\n\n$: note(\"d4 [f4 a4] d5 [f4 a4] d4 [g4 b4] d5 [g4 b4]\")\n  .s(\"sawtooth\").lpf(2400).gain(0.35).room(0.3).pan(0.3)\n\n$: note(\"d3 d3 g3 d3 d3 d3 a3 d3\")\n  .s(\"sawtooth\").lpf(800).gain(0.45).room(0.2).pan(0.5)\n\n$: note(\"[a5 c6 e6]*3 [g5 b5 d6]*3 [a5 c6 e6]*3 [b5 d6 f6]*3\")\n  .s(\"triangle\").lpf(3200).gain(0.3).delay(0.15).room(0.4).pan(0.7)\n\n$: note(\"[[f5 a5 c6 a5]*2 [e5 g5 b5 g5]*2]*2\")\n  .s(\"sine\").lpf(2800).gain(0.25).delay(0.2).room(0.5).pan(0.2)\n\n$: s(\"bd*4, [~ cp]*2, [hh*3 oh]*2\")\n  .gain(\"0.4, 0.3, 0.25\").room(0.2).pan(0.5)\n\n$: note(\"[d6 f6 a6 f6 g6 b6 d7 b6]*0.5\")\n  .s(\"square\").lpf(3500).gain(0.2).delay(0.25).room(0.6).pan(sine.range(0.3,0.7))",
+      "slug": "jigsmerrilykissedthequakercunla",
+      "title_tokens": [
+        "jigs",
+        "(merrily",
+        "kissed",
+        "the",
+        "quaker",
+        "cunla)"
+      ],
+      "path_tokens": [
+        "generated",
+        "jigs",
+        "(merrily",
+        "kissed",
+        "the",
+        "quaker",
+        "cunla)"
+      ],
+      "aliases": [],
+      "genres": [
+        "celtic",
+        "folk"
+      ],
+      "moods": [
+        "warm"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "bd",
+        "oh",
+        "cp"
+      ],
+      "bpm": 123,
+      "prompt_seeds": [
+        "warm, lively, dancing, moderate tempo around 123 bpm, fiddle-like arpeggios, jig rhythm feel, layered dense textures, Irish session atmosphere, communal and spirited, folk dance energy",
+        "warm, lively, dancing, folk"
+      ]
+    },
+    {
+      "id": "celtic-thelastpint",
+      "title": "The Last Pint",
+      "author": "Celtic",
+      "source_path": "generated/thelastpint",
+      "snippet": "setcpm(123/4)\n\n// Fiddle-like melody - lively arpeggios\n$: note(\"<[bb4 d5 f5 d5] [c5 eb5 g5 eb5] [d5 f5 bb5 f5] [f5 a5 c6 a5]>\")\n.s(\"sawtooth\").lpf(2800).room(0.3).gain(0.45)\n\n// Counter melody - second fiddle\n$: note(\"<[f4 bb4 d5] [g4 c5 eb5] [bb4 d5 f5] [a4 c5 f5]>\".slow(2))\n.s(\"triangle\").lpf(2200).delay(0.15).gain(0.35)\n\n// Accordion-like pad chords\n$: note(\"<[bb3,d4,f4] [c4,eb4,g4] [d4,f4,bb4] [f4,a4,c5]>\")\n.s(\"square\").lpf(1200).room(0.4).gain(0.25)\n\n// Warm bass - Celtic groove\n$: note(\"<bb2 [bb2 f2] [bb2 c3] [bb2 f2]>\")\n.s(\"sine\").gain(0.5)\n\n// Bodhrán-style percussion\n$: s(\"bd:2, [~ cp] [~ cp] [~ rim]\").gain(0.35)\n\n// Rhythmic texture - foot stomps\n$: s(\"[~ bd:5]*4\").gain(0.25).hpf(200)",
+      "slug": "thelastpint",
+      "title_tokens": [
+        "the",
+        "last",
+        "pint"
+      ],
+      "path_tokens": [
+        "generated",
+        "the",
+        "last",
+        "pint"
+      ],
+      "aliases": [],
+      "genres": [
+        "celtic",
+        "folk"
+      ],
+      "moods": [
+        "warm"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "chords"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "bd",
+        "cp",
+        "rim"
+      ],
+      "bpm": 123,
+      "prompt_seeds": [
+        "warm, energetic Celtic pub feel, moderate tempo around 123 bpm, in Bb major, driving acoustic energy with fiddle-like arpeggios, low-end warmth, folk dance rhythm, lively and full-bodied",
+        "warm, energetic, celtic, pub"
+      ]
+    },
+    {
+      "id": "strategygameost-totalwarattilahuntheme",
+      "title": "Total War: Attila — Hun Theme",
+      "author": "Total War",
+      "source_path": "generated/totalwarattilahuntheme",
+      "snippet": "setcpm(123/4)\n\n$: note(\"b1 [~ b1] ~ [b1 d2]\").s(\"sawtooth\").lpf(200).gain(0.4).room(0.8)\n\n$: note(\"<b2 d3 fs3 a3>\").s(\"sine\").lpf(300).delay(0.6).room(0.9).gain(0.25).slow(4)\n\n$: note(\"b3 [d4 fs4] ~ a3\").s(\"triangle\").gain(0.15).pan(sine.slow(16)).room(0.7).slow(2)\n\n$: s(\"~ bd ~ ~, ~ ~ ~ hh:2/2\").gain(0.25).room(0.5).slow(2)\n\n$: note(\"b2 ~ ~ ~\").s(\"square\").lpf(180).gain(0.35).room(0.95).slow(8)\n\n$: note(\"[~ b4] [d5 ~] [fs4 ~] [a4 ~]\").s(\"sine\").hpf(800).gain(0.2).delay(0.8).room(0.85).slow(3)",
+      "slug": "totalwarattilahuntheme",
+      "title_tokens": [
+        "total",
+        "war:",
+        "attila",
+        "—",
+        "hun",
+        "theme"
+      ],
+      "path_tokens": [
+        "generated",
+        "total",
+        "war:",
+        "attila",
+        "—",
+        "hun",
+        "theme"
+      ],
+      "aliases": [
+        "Attila Main Menu"
+      ],
+      "genres": [
+        "strategy",
+        "game-ost"
+      ],
+      "moods": [
+        "dark",
+        "sparse"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "bd",
+        "hh"
+      ],
+      "bpm": 123,
+      "prompt_seeds": [
+        "dark, brooding steppe atmosphere, low drones, sparse throat-singing textures, 123 bpm, in B minor, building slowly, desolate and vast, ambient",
+        "dark, brooding, sparse, ambient"
+      ]
+    },
+    {
+      "id": "strategygameost-lionheart",
+      "title": "Lionheart",
+      "author": "Crusader Kings III",
+      "source_path": "generated/lionheart",
+      "snippet": "setcpm(68/4)\n\n$: note(\"e3 e3 b2 b2\").s(\"sawtooth\").lpf(400).room(0.8).gain(0.35).slow(4)\n\n$: note(\"<e4 fs4 g4 a4> <g4 a4 b4 c5> <fs4 g4 a4 b4> <d4 e4 fs4 g4>\")\n.s(\"triangle\").lpf(800).delay(0.4).room(0.6).gain(0.25).slow(8)\n\n$: note(\"b4 [a4 g4] fs4 e4 d4 [fs4 e4] g4 a4\")\n.s(\"sine\").lpf(1200).delay(0.35).room(0.7).gain(0.2).slow(6)\n\n$: note(\"<[e5 g5 b5] [d5 fs5 a5] [e5 g5 b5] [d5 fs5 a5]>\")\n.s(\"square\").lpf(600).room(0.9).gain(0.15).slow(16)\n\n$: note(\"e2 ~ b2 ~ e2 ~ d2 ~\").s(\"sine\").lpf(200).gain(0.4).slow(8)\n\n$: note(\"<e4 [g4 fs4] b4 [a4 g4]> <d4 [fs4 e4] a4 [g4 fs4]>\")\n.s(\"sawtooth\").lpf(900).delay(0.5).room(0.75).gain(0.18).slow(10)",
+      "slug": "lionheart",
+      "title_tokens": [
+        "lionheart"
+      ],
+      "path_tokens": [
+        "generated",
+        "lionheart"
+      ],
+      "aliases": [],
+      "genres": [
+        "strategy",
+        "game-ost"
+      ],
+      "moods": [
+        "dark"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle"
+      ],
+      "bpm": 68,
+      "prompt_seeds": [
+        "dark, medieval contemplation, slow feel around 68 bpm, in E minor shifting to D major, layered strings and lute-like textures, melancholy court ambiance, ambient",
+        "dark, medieval, contemplative, ambient"
+      ]
+    },
+    {
+      "id": "strategygameost-arabiasaladinfullost4eras",
+      "title": "Arabia / Saladin (Full OST — 4 eras)",
+      "author": "Civilization VI",
+      "source_path": "generated/arabiasaladinfullost4eras",
+      "snippet": "setcpm(112/4)\n\n$: s(\"bd\").gain(0.35)\n\n$: s(\"~ sd\").gain(0.3)\n\n$: s(\"hh*4\").gain(0.25).pan(sine.slow(3))\n\n$: note(\"<[d2 d2] [d2 a1]>*2\")\n.s(\"sawtooth\")\n.lpf(300)\n.gain(0.4)\n\n$: note(\"<[d4 f4 g4 a4] [c5 bf4 a4 g4]>\")\n.s(\"triangle\")\n.delay(0.3)\n.room(0.4)\n.gain(0.25)\n\n$: note(\"<[d5 e5 f5] [g5 f5 e5] [a5 g5 f5] [bf5 a5 g5]>\")\n.s(\"sine\")\n.delay(0.5)\n.room(0.6)\n.gain(0.2)\n.pan(saw.slow(5))\n\n$: note(\"[d3 f3 a3]*2\".slow(2))\n.s(\"square\")\n.lpf(800)\n.gain(0.3)\n\n$: s(\"oh*2\").gain(0.2).pan(0.7).delay(0.2)\n\n$: note(\"<[d6 e6 f6 e6] [a6 g6 f6 e6]>*2\")\n.s(\"sine\")\n.room(0.8)\n.gain(0.15)\n.delay(0.6)\n\n$: note(\"[d4 a4 d5]*4\".fast(2))\n.s(\"supersaw\")\n.lpf(1200)\n.gain(0.35)\n\n$: s(\"cp\").gain(0.25).delay(0.4)\n\n$: note(\"<[d5 f5 a5 c6] [d5 g5 bf5 d6]>\")\n.s(\"triangle\")\n.hpf(400)\n.room(0.5)\n.gain(0.3)",
+      "slug": "arabiasaladinfullost4eras",
+      "title_tokens": [
+        "arabia",
+        "/",
+        "saladin",
+        "(full",
+        "ost",
+        "—",
+        "4",
+        "eras)"
+      ],
+      "path_tokens": [
+        "generated",
+        "arabia",
+        "/",
+        "saladin",
+        "(full",
+        "ost",
+        "—",
+        "4",
+        "eras)"
+      ],
+      "aliases": [
+        "Saladin"
+      ],
+      "genres": [
+        "strategy",
+        "game-ost"
+      ],
+      "moods": [
+        "dark"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "supersaw",
+        "bd",
+        "sd",
+        "hh",
+        "oh",
+        "cp"
+      ],
+      "bpm": 112,
+      "prompt_seeds": [
+        "dark, ornate, moderate tempo around 112 bpm, in D minor, Middle Eastern melodic intervals, building through four eras, desert night to conquest",
+        "dark, ornate, middle-eastern, building"
+      ]
+    },
+    {
+      "id": "ancientmilitary-oiantresoifanisimoigreekwarsong",
+      "title": "Oi Antres Oi Fanisimoi — Greek War Song",
+      "author": "Ancient/Military",
+      "source_path": "generated/oiantresoifanisimoigreekwarsong",
+      "snippet": "setcpm(99)\n\n$: note(\"a2 [e2 a2] a2 e2\").s(\"sawtooth\").lpf(800).gain(0.45).room(0.3)\n\n$: note(\"<a3 e3 a3 e3>\").s(\"square\").lpf(1200).delay(0.3).gain(0.3).pan(0.3)\n\n$: note(\"a4 e5 a4 [e5 a5]\").s(\"triangle\").lpf(2000).delay(0.4).gain(0.25).pan(0.7)\n\n$: s(\"bd [~ bd] bd ~, ~ [sd ~ sd] ~ sd, [hh hh hh hh]*2\").gain(0.35).room(0.2)\n\n$: s(\"cp ~ ~ cp\").delay(0.5).gain(0.3)\n\n$: note(\"<a5 e6 a5 c6>\").s(\"sine\").lpf(3000).delay(0.6).gain(0.2).pan(0.5).room(0.4)\n\n$: note(\"a3 ~ e3 ~\").s(\"supersaw\").lpf(1500).gain(0.25).room(0.5)\n\n$: note(\"[a4 e4 a4] ~ [e4 a4] [a4 d5]\").s(\"square\").hpf(800).lpf(2500).gain(0.28).pan(0.2)\n\n$: s(\"~ rim ~ [rim rim]\").gain(0.25).delay(0.3)",
+      "slug": "oiantresoifanisimoigreekwarsong",
+      "title_tokens": [
+        "oi",
+        "antres",
+        "oi",
+        "fanisimoi",
+        "—",
+        "greek",
+        "war",
+        "song"
+      ],
+      "path_tokens": [
+        "generated",
+        "oi",
+        "antres",
+        "oi",
+        "fanisimoi",
+        "—",
+        "greek",
+        "war",
+        "song"
+      ],
+      "aliases": [],
+      "genres": [
+        "ancient/military"
+      ],
+      "moods": [
+        "bold",
+        "martial",
+        "stirring"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "supersaw",
+        "bd",
+        "sd",
+        "hh",
+        "cp",
+        "rim"
+      ],
+      "bpm": 99,
+      "prompt_seeds": [
+        "bold, martial, stirring around 99 bpm, in A minor, dense layered textures, ancient Greek battle hymn feel, open fifths",
+        "bold, martial, stirring, ancient"
+      ]
+    },
+    {
+      "id": "centralasiannomadic-untitledcentralasiantrack",
+      "title": "Untitled Central Asian Track",
+      "author": "Central Asian/Nomadic",
+      "source_path": "generated/untitledcentralasiantrack",
+      "snippet": "setcpm(80)\n\n$: note(\"f#3 [a3 c#4] [e4 g#4] [c#4 f#4]\")\n.s(\"sawtooth\")\n.lpf(800)\n.gain(0.4)\n.room(0.3)\n\n$: note(\"[f#4 a4 c#5]*8\")\n.s(\"triangle\")\n.lpf(2400)\n.delay(0.3)\n.gain(0.25)\n.pan(sine.range(0.3, 0.7))\n\n$: note(\"[a5 c#6 e6 g#6]*16\")\n.s(\"sine\")\n.gain(0.2)\n.room(0.5)\n.pan(perlin.range(0, 1))\n\n$: note(\"[c#6 f#6 a6 c#7]*12\")\n.s(\"square\")\n.lpf(3600)\n.gain(0.18)\n.delay(0.25)\n\n$: note(\"[f#6 a6 e7 g#7 c#8]*20\")\n.s(\"sine\")\n.gain(0.15)\n.room(0.6)\n.pan(sine.slow(4).range(0.2, 0.8))\n\n$: note(\"[a7 c#8 f#8 a8]*24\")\n.s(\"triangle\")\n.hpf(4000)\n.gain(0.12)\n.delay(0.35)\n\n$: note(\"[f#2 c#3]*2\")\n.s(\"supersaw\")\n.lpf(400)\n.gain(0.35)\n.room(0.2)\n\n$: s(\"bd*4, hh*16, cp(3,8)\")\n.gain(0.3)\n.room(0.1)",
+      "slug": "untitledcentralasiantrack",
+      "title_tokens": [
+        "untitled",
+        "central",
+        "asian",
+        "track"
+      ],
+      "path_tokens": [
+        "generated",
+        "untitled",
+        "central",
+        "asian",
+        "track"
+      ],
+      "aliases": [],
+      "genres": [
+        "world",
+        "ambient"
+      ],
+      "moods": [
+        "bright",
+        "intense"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "supersaw",
+        "bd",
+        "hh",
+        "cp"
+      ],
+      "bpm": 80,
+      "prompt_seeds": [
+        "bright, intense, radiant, driving around 80 bpm, in F# major, extremely dense layered harmonics, shimmering overtones",
+        "bright, intense, radiant, driving"
+      ]
+    },
+    {
+      "id": "centralasiannomadic-oiradkalmyknationalmusic",
+      "title": "Oirad-Kalmyk National Music",
+      "author": "Central Asian/Nomadic",
+      "source_path": "generated/oiradkalmyknationalmusic",
+      "snippet": "setcpm(86/4)\n\n$: note(\"c1 c2 c3\").s(\"sawtooth\").lpf(80).gain(0.4).room(0.6)\n\n$: note(\"<c2 g1 f1 c1>\").s(\"sawtooth\").lpf(120).delay(0.3).gain(0.35).pan(0.3)\n\n$: note(\"c3 [c3 g3] <eb3 f3> [g3 c3]\").s(\"sawtooth\").lpf(200).gain(0.3).room(0.5).pan(0.7)\n\n$: note(\"[c4 eb4 g4 bb4]*4\").s(\"supersaw\").lpf(800).gain(0.25).delay(0.2).pan(sine.range(0.3,0.7))\n\n$: note(\"<c5 eb5 g5 bb5>*2\").s(\"square\").lpf(1200).hpf(400).gain(0.2).room(0.4)\n\n$: note(\"[c3,g3,c4,eb4]*8\").s(\"sawtooth\").lpf(300).gain(0.25).pan(\"<0.2 0.8>\")\n\n$: note(\"c2!4 [c2 g2] f2!4 [f2 c3]\").s(\"sawtooth\").lpf(150).gain(0.4).room(0.7).pan(0.5)\n\n$: s(\"bd*4\").gain(0.3).room(0.2)\n\n$: s(\"~ cp ~ cp\").gain(0.25)\n\n$: s(\"hh*8\").gain(0.2).hpf(8000)\n\n$: note(\"<c4 eb4 g4>*16\").s(\"sine\").lpf(2000).gain(0.15).delay(0.4).pan(rand.range(0.2,0.8))\n\n$: note(\"[c2,eb2,g2,bb2]\").s(\"sawtooth\").lpf(100).gain(0.35).room(0.8)",
+      "slug": "oiradkalmyknationalmusic",
+      "title_tokens": [
+        "oirad-kalmyk",
+        "national",
+        "music"
+      ],
+      "path_tokens": [
+        "generated",
+        "oirad-kalmyk",
+        "national",
+        "music"
+      ],
+      "aliases": [],
+      "genres": [
+        "world",
+        "ambient"
+      ],
+      "moods": [
+        "intense"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "chords"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "supersaw",
+        "bd",
+        "hh",
+        "cp"
+      ],
+      "bpm": 86,
+      "prompt_seeds": [
+        "intense, vibrant, driving around 86 bpm, in C major, extremely dense layered drones, throat-singing-like sawtooth stacks, steppe horseback energy",
+        "intense, vibrant, driving, steppe"
+      ]
+    },
+    {
+      "id": "sacredreligious-paschalfirstantiphonznamennychant",
+      "title": "Paschal First Antiphon (Znamenny Chant)",
+      "author": "Sacred/Religious",
+      "source_path": "generated/paschalfirstantiphonznamennychant",
+      "snippet": "setcpm(92/4)\n\n$: note(\"eb3 [~ gb3] [~ ab3] [~ bb3]\")\n.s(\"sine\")\n.gain(0.35)\n.room(0.9)\n.delay(0.3)\n\n$: note(\"<[eb4 gb4 bb4] [f4 ab4 c5] [gb4 bb4 db5] [eb4 gb4 bb4]>\")\n.s(\"triangle\")\n.slow(4)\n.gain(0.25)\n.room(0.85)\n\n$: note(\"eb5 [~ f5] gb5 [~ ab5]\")\n.s(\"sine\")\n.slow(3)\n.gain(0.2)\n.room(0.95)\n.delay(0.4)\n\n$: note(\"[eb2 ~ ~] [~ ~ bb1] [~ ab1 ~] [~ ~ eb2]\")\n.s(\"sine\")\n.slow(2)\n.gain(0.4)\n.lpf(400)\n.room(0.8)\n\n$: note(\"bb4 ~ ab4 gb4 ~ f4 ~ eb4\")\n.s(\"sine\")\n.slow(6)\n.gain(0.18)\n.room(0.98)\n.delay(0.5)",
+      "slug": "paschalfirstantiphonznamennychant",
+      "title_tokens": [
+        "paschal",
+        "first",
+        "antiphon",
+        "(znamenny",
+        "chant)"
+      ],
+      "path_tokens": [
+        "generated",
+        "paschal",
+        "first",
+        "antiphon",
+        "(znamenny",
+        "chant)"
+      ],
+      "aliases": [],
+      "genres": [
+        "sacred",
+        "ambient"
+      ],
+      "moods": [
+        "sparse"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sine",
+        "triangle"
+      ],
+      "bpm": 92,
+      "prompt_seeds": [
+        "calm, sacred, ancient around 92 bpm, in Eb major, Znamenny chant tradition, quiet devotion, sparse and pure",
+        "calm, sacred, ancient, sparse"
+      ]
+    },
+    {
+      "id": "sacredreligious-kontakionofthemotherofgod",
+      "title": "Kontakion of the Mother of God",
+      "author": "Sacred/Religious",
+      "source_path": "generated/kontakionofthemotherofgod",
+      "snippet": "setcpm(103/4)\n\n$: note(\"f3 [ab3 c4] f3 [g3 bb3]\")\n.s(\"sine\")\n.gain(0.35)\n.lpf(800)\n.room(0.6)\n\n$: note(\"f4 ab4 c5 [ab4 f4]\")\n.s(\"triangle\")\n.gain(0.25)\n.delay(0.3)\n.room(0.7)\n.pan(0.6)\n\n$: note(\"<c5 [eb5 f5] [ab5 c6] [f5 ab5]>\")\n.s(\"sine\")\n.gain(0.2)\n.lpf(1200)\n.room(0.8)\n.pan(0.4)\n\n$: note(\"[f2 c3]*2\")\n.s(\"sawtooth\")\n.gain(0.3)\n.lpf(400)\n.room(0.5)\n\n$: note(\"[[c6 f6] ~ [ab5 c6] ~]/2\")\n.s(\"triangle\")\n.gain(0.15)\n.delay(0.5)\n.room(0.9)\n.pan(0.5)",
+      "slug": "kontakionofthemotherofgod",
+      "title_tokens": [
+        "kontakion",
+        "of",
+        "the",
+        "mother",
+        "of",
+        "god"
+      ],
+      "path_tokens": [
+        "generated",
+        "kontakion",
+        "of",
+        "the",
+        "mother",
+        "of",
+        "god"
+      ],
+      "aliases": [],
+      "genres": [
+        "sacred",
+        "ambient"
+      ],
+      "moods": [
+        "gentle"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering"
+      ],
+      "instruments": [
+        "sawtooth",
+        "sine",
+        "triangle"
+      ],
+      "bpm": 103,
+      "prompt_seeds": [
+        "gentle, sacred, meditative around 103 bpm, in F major, Marian devotion, warm reverent tones, still and contemplative",
+        "gentle, sacred, meditative, reverent"
+      ]
+    },
+    {
+      "id": "sacredreligious-agioscopticchurchmusic",
+      "title": "Agios — Coptic Church Music",
+      "author": "Sacred/Religious",
+      "source_path": "generated/agioscopticchurchmusic",
+      "snippet": "setcpm(118/4)\n\n$: note(\"f2 [ab2,c3] [f2 eb2] [db2,ab2]\")\n  .s(\"sawtooth\").lpf(400).room(0.8).delay(0.3).gain(0.35)\n\n$: note(\"<[f3 g3 ab3 c4] [eb3 f3 g3 bb3] [db3 eb3 f3 ab3] [c3 eb3 f3 ab3]>\")\n  .s(\"sine\").room(0.9).delay(0.5).gain(0.25)\n\n$: note(\"f4 [g4 ab4] [c5 bb4] [ab4 g4] f4 [eb4 db4] [c4 bb3] [ab3 g3]\")\n  .s(\"triangle\").lpf(2000).room(0.7).delay(0.4).gain(0.3)\n\n$: note(\"[f5 ab5 c6]*4\").fast(\"<1 2 3 2>\")\n  .s(\"sine\").lpf(3000).room(0.95).delay(0.6).gain(0.2)\n\n$: note(\"f1 <f1 ab1> <f1 eb1> <db1 f1>\")\n  .s(\"sine\").lpf(200).room(0.6).gain(0.4)\n\n$: sound(\"~ [rim:3 rim:3] ~ [rim:4 ~]\")\n  .room(0.5).gain(0.25)",
+      "slug": "agioscopticchurchmusic",
+      "title_tokens": [
+        "agios",
+        "—",
+        "coptic",
+        "church",
+        "music"
+      ],
+      "path_tokens": [
+        "generated",
+        "agios",
+        "—",
+        "coptic",
+        "church",
+        "music"
+      ],
+      "aliases": [],
+      "genres": [
+        "sacred",
+        "ambient"
+      ],
+      "moods": [
+        "sacred",
+        "mystical",
+        "middle-eastern"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "chords"
+      ],
+      "instruments": [
+        "sawtooth",
+        "sine",
+        "triangle",
+        "rim"
+      ],
+      "bpm": 118,
+      "prompt_seeds": [
+        "sacred, mystical, Middle Eastern around 118 bpm, in F minor, Coptic liturgical atmosphere, layered devotional textures",
+        "sacred, mystical, middle-eastern, coptic"
+      ]
+    },
+    {
+      "id": "sacredreligious-lordsprayerinaramaicsyriacmonks",
+      "title": "Lord's Prayer in Aramaic — Syriac Monks",
+      "author": "Sacred/Religious",
+      "source_path": "generated/lordsprayerinaramaicsyriacmonks",
+      "snippet": "setcpm(68)\n\n$: note(\"d2 [f2 a2] g2 d2\").s(\"sawtooth\").lpf(200).room(0.9).delay(0.6).gain(0.4)\n\n$: note(\"<d3 f3 a3 c4>\").s(\"sine\").lpf(400).room(0.95).delay(0.5).gain(0.25)\n\n$: note(\"d4 [~ f4] [a4 ~] [~ c5] [d5 ~]\").s(\"triangle\").lpf(600).room(0.98).delay(0.7).gain(0.2)\n\n$: note(\"d5 [f5 a5 c6] d6 [a5 ~]\").s(\"sine\").lpf(800).room(0.95).delay(0.8).gain(0.15)\n\n$: s(\"bd(3,8)\").gain(0.25).room(0.7)\n\n$: s(\"[~ rim]*2\").delay(0.4).room(0.8).gain(0.2)",
+      "slug": "lordsprayerinaramaicsyriacmonks",
+      "title_tokens": [
+        "lord's",
+        "prayer",
+        "in",
+        "aramaic",
+        "—",
+        "syriac",
+        "monks"
+      ],
+      "path_tokens": [
+        "generated",
+        "lord's",
+        "prayer",
+        "in",
+        "aramaic",
+        "—",
+        "syriac",
+        "monks"
+      ],
+      "aliases": [],
+      "genres": [
+        "sacred",
+        "ambient"
+      ],
+      "moods": [
+        "dark"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering"
+      ],
+      "instruments": [
+        "sawtooth",
+        "sine",
+        "triangle",
+        "bd",
+        "rim"
+      ],
+      "bpm": 68,
+      "prompt_seeds": [
+        "sacred, ancient, dark around 68 bpm, in D minor, monastic chant atmosphere, Aramaic prayer feel, deep stone reverb",
+        "sacred, ancient, dark, monastic"
+      ]
+    },
+    {
+      "id": "sacredreligious-complinesunginlatin",
+      "title": "Compline Sung in Latin",
+      "author": "Sacred/Religious",
+      "source_path": "generated/complinesunginlatin",
+      "snippet": "setcpm(81)\n\n$: note(\"d3 a3 d4 a3\").s(\"sine\").lpf(800).room(0.9).gain(0.3)\n\n$: note(\"<[d4 f4 a4] [a4 c5 e5] [f4 a4 d5] [g4 b4 d5]>\").s(\"triangle\").slow(4).lpf(1200).room(0.95).delay(0.4).gain(0.25)\n\n$: note(\"<d5 f5 a5 d6 a5 f5>\").s(\"sine\").slow(6).lpf(1500).room(0.98).delay(0.5).gain(0.2)\n\n$: note(\"d2 d2 a2 d2\").s(\"sawtooth\").slow(2).lpf(400).room(0.85).gain(0.35)\n\n$: note(\"<[~ a5 d6] [~ f5 a5] [~ g5 b5] [~ e5 a5]>\").s(\"triangle\").slow(8).lpf(2000).room(1).delay(0.6).gain(0.18)\n\n$: note(\"a4 d5 f5 a5 f5 d5\").s(\"sine\").slow(3).lpf(1000).room(0.92).gain(0.22)",
+      "slug": "complinesunginlatin",
+      "title_tokens": [
+        "compline",
+        "sung",
+        "in",
+        "latin"
+      ],
+      "path_tokens": [
+        "generated",
+        "compline",
+        "sung",
+        "in",
+        "latin"
+      ],
+      "aliases": [],
+      "genres": [
+        "sacred",
+        "ambient"
+      ],
+      "moods": [
+        "sacred",
+        "meditative",
+        "flowing"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "sine",
+        "triangle"
+      ],
+      "bpm": 81,
+      "prompt_seeds": [
+        "sacred, meditative, flowing around 81 bpm, in D major, Latin monastic chant, cathedral reverb, contemplative and timeless",
+        "sacred, meditative, flowing, monastic"
+      ]
+    },
+    {
+      "id": "sacredreligious-facesofthecopticchurch",
+      "title": "Faces of the Coptic Church",
+      "author": "Sacred/Religious",
+      "source_path": "generated/facesofthecopticchurch",
+      "snippet": "setcpm(118/4)\n\n$: note(\"b3 [d4 fs4] b3 [fs4 a4]\")\n.s(\"sawtooth\").lpf(1200).gain(0.4)\n\n$: note(\"<[b4 d5 fs5]*4 [d5 fs5 a5]*4>\")\n.s(\"sine\").room(0.6).gain(0.3)\n\n$: note(\"[[b5 d6]*8 [fs6 a6]*8]\")\n.s(\"triangle\").delay(0.3).pan(sine.range(0.3,0.7)).gain(0.25)\n\n$: note(\"[b6 d7 fs7 a7 b7]*16\")\n.s(\"sine\").lpf(4000).room(0.8).gain(0.2)\n\n$: note(\"[[fs7 b7 d8]*8 [a7 d8 fs8]*8]\")\n.s(\"triangle\").hpf(2000).delay(0.2).pan(rand.range(0,1)).gain(0.15)\n\n$: s(\"[bd*2, cp(3,8), [hh*8, oh*4]]\")\n.gain(\"<0.35 0.3 0.4 0.35>\")\n\n$: note(\"[b2 fs2]*2\").s(\"square\")\n.lpf(300).gain(0.45)\n\n$: note(\"[[b8 fs8 d8]*16]\")\n.s(\"sine\").room(0.9).pan(sine.range(0,1).slow(4)).gain(0.18)",
+      "slug": "facesofthecopticchurch",
+      "title_tokens": [
+        "faces",
+        "of",
+        "the",
+        "coptic",
+        "church"
+      ],
+      "path_tokens": [
+        "generated",
+        "faces",
+        "of",
+        "the",
+        "coptic",
+        "church"
+      ],
+      "aliases": [],
+      "genres": [
+        "sacred",
+        "ambient"
+      ],
+      "moods": [
+        "bright",
+        "intense"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "oh",
+        "cp"
+      ],
+      "bpm": 118,
+      "prompt_seeds": [
+        "bright, intense, shimmering around 118 bpm, in B major, Coptic church celebration, brilliant high frequencies, extremely dense, radiant devotional energy",
+        "bright, intense, shimmering, devotional"
+      ]
+    },
+    {
+      "id": "medievalcrusader-tiipermahobyzantineimperialanthem",
+      "title": "Ti Ipermaho / Byzantine Imperial Anthem",
+      "author": "Medieval/Crusader",
+      "source_path": "generated/tiipermahobyzantineimperialanthem",
+      "snippet": "setcpm(74/4)\n\n$: note(\"b2 [b2 b2] [b2 cs3] b2\")\n.s(\"sawtooth\")\n.lpf(400)\n.room(0.8)\n.gain(0.4)\n\n$: note(\"<[fs3 b3 ds4] [gs3 b3 e4] [fs3 as3 cs4] [e3 gs3 b3]>\")\n.s(\"sine\")\n.delay(0.3)\n.room(0.9)\n.gain(0.3)\n\n$: note(\"<[b4 ds5 fs5] [cs5 e5 gs5] [as4 cs5 fs5] [gs4 b4 e5]>\")\n.s(\"triangle\")\n.lpf(2000)\n.room(0.9)\n.gain(0.25)\n\n$: note(\"[[fs5 gs5] [b5 as5] gs5 fs5]\")\n.s(\"sine\")\n.delay(0.4)\n.room(0.95)\n.gain(0.2)\n\n$: note(\"<[b3 ds4] [gs3 cs4] [fs3 b3] [e3 as3]>\")\n.s(\"square\")\n.lpf(600)\n.room(0.85)\n.gain(0.35)\n\n$: note(\"[~ b5]*4\")\n.s(\"triangle\")\n.lpf(3000)\n.delay(0.5)\n.room(0.95)\n.gain(0.15)",
+      "slug": "tiipermahobyzantineimperialanthem",
+      "title_tokens": [
+        "ti",
+        "ipermaho",
+        "/",
+        "byzantine",
+        "imperial",
+        "anthem"
+      ],
+      "path_tokens": [
+        "generated",
+        "ti",
+        "ipermaho",
+        "/",
+        "byzantine",
+        "imperial",
+        "anthem"
+      ],
+      "aliases": [
+        "Ti Ipermaho",
+        "Byzantine Anthem"
+      ],
+      "genres": [
+        "medieval",
+        "cinematic"
+      ],
+      "moods": [
+        "imperial",
+        "sacred",
+        "majestic"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle"
+      ],
+      "bpm": 74,
+      "prompt_seeds": [
+        "imperial, sacred, majestic around 74 bpm, in B major, Byzantine anthem, layered choral textures, ancient and dignified",
+        "imperial, sacred, majestic, byzantine"
+      ]
+    },
+    {
+      "id": "medievalcrusader-leroilouis",
+      "title": "Le Roi Louis",
+      "author": "Medieval/Crusader",
+      "source_path": "generated/leroilouis",
+      "snippet": "setcpm(86)\n\n$: note(\"d2 d2 a2 d3\").s(\"sawtooth\").lpf(800).gain(0.4).room(0.3)\n\n$: note(\"<d3 f3 a3 d4>*2\").s(\"square\").lpf(1200).gain(0.3).delay(0.3).pan(0.3)\n\n$: note(\"d4 a4 f4 d4 e4 f4 a4 d5\").s(\"triangle\").lpf(2000).gain(0.25).room(0.4).pan(-0.3)\n\n$: s(\"bd bd ~ bd, ~ sd ~ sd, [~ hh]*4\").gain(0.35).room(0.2)\n\n$: note(\"<d5 a5 f5 e5>\").s(\"sine\").lpf(3000).gain(0.2).delay(0.4).pan(0.5)\n\n$: s(\"rim*8\").gain(\"<0.15 0.2 0.15 0.25>\").hpf(800).pan(-0.4)",
+      "slug": "leroilouis",
+      "title_tokens": [
+        "le",
+        "roi",
+        "louis"
+      ],
+      "path_tokens": [
+        "generated",
+        "le",
+        "roi",
+        "louis"
+      ],
+      "aliases": [],
+      "genres": [
+        "medieval",
+        "cinematic"
+      ],
+      "moods": [
+        "martial",
+        "noble",
+        "medieval"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "bd",
+        "sd",
+        "hh",
+        "rim"
+      ],
+      "bpm": 86,
+      "prompt_seeds": [
+        "martial, noble, medieval around 86 bpm, in D major, crusader march atmosphere, layered folk textures, royal and determined",
+        "martial, noble, medieval, crusader"
+      ]
+    },
+    {
+      "id": "historicalroman-rometriomphedoctave",
+      "title": "Rome: Triomphe d'Octave",
+      "author": "Historical/Roman",
+      "source_path": "generated/rometriomphedoctave",
+      "snippet": "setcpm(65/4)\n\n$: note(\"<eb3 g3 bb3 eb4>*0.5\")\n.s(\"sine\")\n.gain(0.35)\n.room(0.9)\n.lpf(800)\n\n$: note(\"<eb2 bb1 ab1 eb2>\")\n.s(\"sawtooth\")\n.gain(0.4)\n.lpf(400)\n.room(0.8)\n\n$: note(\"<<eb5 g5> <bb5 d5> <c5 ab5> <bb4 g5>>\")\n.s(\"triangle\")\n.gain(0.25)\n.delay(0.4)\n.room(0.95)\n.pan(sine.range(0.3,0.7).slow(8))\n\n$: s(\"bd ~ ~ ~ ~ ~ bd ~\")\n.gain(0.3)\n.room(0.7)\n\n$: note(\"<[~ eb6] [~ g6] [~ bb6] [~ eb6]>\")\n.s(\"sine\")\n.gain(0.2)\n.delay(0.5)\n.room(1)\n.lpf(2000)",
+      "slug": "rometriomphedoctave",
+      "title_tokens": [
+        "rome:",
+        "triomphe",
+        "d'octave"
+      ],
+      "path_tokens": [
+        "generated",
+        "rome:",
+        "triomphe",
+        "d'octave"
+      ],
+      "aliases": [],
+      "genres": [
+        "cinematic",
+        "historical"
+      ],
+      "moods": [
+        "sparse"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "sine",
+        "triangle",
+        "bd"
+      ],
+      "bpm": 65,
+      "prompt_seeds": [
+        "majestic, sparse, slow around 65 bpm, in Eb major, imperial grandeur, marble halls, spacious and dignified",
+        "majestic, sparse, slow, imperial"
+      ]
+    },
+    {
+      "id": "historicalroman-constantinopleatsunrise",
+      "title": "Constantinople at Sunrise",
+      "author": "Historical/Roman",
+      "source_path": "generated/constantinopleatsunrise",
+      "snippet": "setcpm(118/4)\n\n$: note(\"<eb3 gb3 bb3 eb4>*2\")\n.s(\"sine\")\n.gain(0.25)\n.room(0.6)\n.lpf(800)\n\n$: note(\"<eb4 f4 gb4 ab4 bb4 gb4>\")\n.s(\"triangle\")\n.gain(0.3)\n.delay(0.4)\n.room(0.5)\n.pan(sine.slow(8).range(0.3,0.7))\n\n$: note(\"<bb4 [eb5 gb5] ab4 [f5 db5]>\")\n.s(\"sawtooth\")\n.gain(0.2)\n.lpf(1200)\n.room(0.7)\n.delay(0.3)\n\n$: note(\"eb2 [~ eb2] bb1 [~ bb1]\")\n.s(\"sine\")\n.gain(0.45)\n.lpf(400)\n\n$: note(\"<[eb5 bb5 gb5] [f5 ab5 db6] [gb5 bb5 eb6] [ab5 db6 f6]>/2\")\n.s(\"triangle\")\n.gain(0.18)\n.room(0.8)\n.delay(0.5)\n.pan(sine.slow(16).range(0.2,0.8))\n\n$: s(\"hh*8\")\n.gain(\"0 0.15 0.1 0.2 0 0.15 0.1 0.25\")\n.room(0.4)\n.hpf(8000)",
+      "slug": "constantinopleatsunrise",
+      "title_tokens": [
+        "constantinople",
+        "at",
+        "sunrise"
+      ],
+      "path_tokens": [
+        "generated",
+        "constantinople",
+        "at",
+        "sunrise"
+      ],
+      "aliases": [],
+      "genres": [
+        "cinematic",
+        "historical"
+      ],
+      "moods": [
+        "warm"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "sine",
+        "triangle",
+        "hh"
+      ],
+      "bpm": 118,
+      "prompt_seeds": [
+        "warm, atmospheric, dawn-like around 118 bpm, in Eb major, golden city awakening, gentle layered textures, ancient and beautiful",
+        "warm, atmospheric, dawn, ancient"
+      ]
+    },
+    {
+      "id": "historicalroman-vandalidelendaest",
+      "title": "VANDALI Delenda Est",
+      "author": "Historical/Roman",
+      "source_path": "generated/vandalidelendaest",
+      "snippet": "setcpm(81)\n\n$: note(\"d2 d2 [d2 a2] d2\")\n  .s(\"sawtooth\")\n  .gain(0.45)\n  .lpf(200)\n  .room(0.2)\n\n$: note(\"<d3 a3 f3 g3>*2\")\n  .s(\"square\")\n  .gain(0.35)\n  .lpf(800)\n  .delay(0.3)\n  .room(0.3)\n\n$: note(\"[d4 f4 a4]*4\")\n  .s(\"supersaw\")\n  .gain(0.3)\n  .lpf(1200)\n  .pan(sine.range(0.3,0.7))\n  .room(0.4)\n\n$: s(\"bd:3*4, sd:2(3,8), [~ cp:1]*2\")\n  .gain(0.4)\n  .room(0.2)\n  .hpf(80)\n\n$: s(\"hh*8\")\n  .gain(\"[0.2 0.15]*4\")\n  .hpf(8000)\n  .pan(saw.range(0.4,0.6))\n\n$: note(\"<[d5 a5] [f5 d6] [a5 f5] [g5 d5]>\")\n  .s(\"triangle\")\n  .gain(0.25)\n  .lpf(2400)\n  .delay(0.4)\n  .room(0.5)\n  .pan(0.5)",
+      "slug": "vandalidelendaest",
+      "title_tokens": [
+        "vandali",
+        "delenda",
+        "est"
+      ],
+      "path_tokens": [
+        "generated",
+        "vandali",
+        "delenda",
+        "est"
+      ],
+      "aliases": [
+        "VANDALI"
+      ],
+      "genres": [
+        "cinematic",
+        "historical"
+      ],
+      "moods": [
+        "epic",
+        "intense"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "triangle",
+        "supersaw",
+        "bd",
+        "sd",
+        "hh",
+        "cp"
+      ],
+      "bpm": 81,
+      "prompt_seeds": [
+        "epic, martial, intense around 81 bpm, in D major, Roman military energy, driving layered textures, triumphant destruction",
+        "epic, martial, intense, triumphant"
+      ]
+    },
+    {
+      "id": "militarymarch-returnofthesovietunionsovietmarch2021",
+      "title": "Return of the Soviet-Union — Soviet March 2021",
+      "author": "Military/March",
+      "source_path": "generated/returnofthesovietunionsovietmarch2021",
+      "snippet": "setcpm(123)\n\n$: note(\"<c3 c3 [c3 g2] c3>*4\")\n.s(\"sawtooth\").lpf(800).gain(0.4)\n\n$: note(\"<c4 eb4 g4 c5>*2\")\n.s(\"square\").lpf(1200).room(0.3).gain(0.35)\n\n$: note(\"<c2 c2 g1 c2>\")\n.s(\"triangle\").gain(0.5)\n\n$: s(\"bd*4, sd(3,8), hh*8\")\n.gain(\"<0.4 0.35 0.4 0.38>\")\n\n$: note(\"<c5 eb5 g5 c6, g4 bb4 d5 g5>\")\n.s(\"sawtooth\").lpf(2000).delay(0.15).gain(0.3)\n\n$: note(\"<<c4 eb4 g4 bb4> <c4 d4 f4 a4> <c4 eb4 g4 bb4> <c#4 e4 g#4 b4>>\")\n.s(\"supersaw\").lpf(1500).room(0.4).gain(0.25)\n\n$: s(\"cp(5,16)\").gain(0.3).pan(sine.range(0.3,0.7))\n\n$: note(\"<<c3 g3 c4> <eb3 bb3 eb4> <g3 d4 g4> <c#3 g#3 c#4>>\")\n.s(\"square\").lpf(900).room(0.25).gain(0.35)\n\n$: note(\"<<c6 g6> <eb6 bb6> <f#5 c#6> <g#5 d#6>>\")\n.s(\"sine\").delay(0.2).gain(0.2).pan(0.5)\n\n$: s(\"rim(7,16,<0 2 1 3>)\").gain(0.25)\n\n$: note(\"<<c2 c3> <f1 f2> <f#1 f#2> <f#2 c#3>>\")\n.s(\"triangle\").lpf(600).gain(0.45)",
+      "slug": "returnofthesovietunionsovietmarch2021",
+      "title_tokens": [
+        "return",
+        "of",
+        "the",
+        "soviet-union",
+        "—",
+        "soviet",
+        "march",
+        "2021"
+      ],
+      "path_tokens": [
+        "generated",
+        "return",
+        "of",
+        "the",
+        "soviet-union",
+        "—",
+        "soviet",
+        "march",
+        "2021"
+      ],
+      "aliases": [
+        "Soviet March"
+      ],
+      "genres": [
+        "military/march"
+      ],
+      "moods": [
+        "dark"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "supersaw",
+        "bd",
+        "sd",
+        "hh",
+        "cp",
+        "rim"
+      ],
+      "bpm": 123,
+      "prompt_seeds": [
+        "military march, powerful brass, dark and triumphant, 123 bpm, in C major modulating to F# minor, layered and dense, building intensity, ceremonial",
+        "military, powerful, dark, triumphant"
+      ]
+    },
+    {
+      "id": "filmtrailer-chansonetafaraivencutkingdomofheaven",
+      "title": "Chansoneta Farai Vencut — Kingdom of Heaven",
+      "author": "Kingdom of Heaven",
+      "source_path": "generated/chansonetafaraivencutkingdomofheaven",
+      "snippet": "setcpm(112/4)\n\n$: note(\"f#2 [~ c#2] [~ a1] [~ g#1]\")\n.s(\"sawtooth\")\n.lpf(400)\n.room(0.9)\n.gain(0.3)\n\n$: note(\"[~ f#4] ~ [~ a4] ~\")\n.s(\"triangle\")\n.delay(0.6)\n.room(0.8)\n.gain(0.25)\n\n$: note(\"~ ~ [~ c#5] ~\")\n.s(\"sine\")\n.lpf(800)\n.delay(0.7)\n.room(0.9)\n.gain(0.2)\n\n$: s(\"[~ bd] ~ ~ ~\")\n.gain(0.25)\n.room(0.7)\n\n$: s(\"~ ~ ~ [~ rim]\")\n.gain(0.15)\n.lpf(600)\n.room(0.8)\n\n$: note(\"~ [~ a3] ~ ~\")\n.s(\"sine\")\n.delay(0.8)\n.room(0.95)\n.gain(0.18)",
+      "slug": "chansonetafaraivencutkingdomofheaven",
+      "title_tokens": [
+        "chansoneta",
+        "farai",
+        "vencut",
+        "—",
+        "kingdom",
+        "of",
+        "heaven"
+      ],
+      "path_tokens": [
+        "generated",
+        "chansoneta",
+        "farai",
+        "vencut",
+        "—",
+        "kingdom",
+        "of",
+        "heaven"
+      ],
+      "aliases": [],
+      "genres": [
+        "cinematic",
+        "film"
+      ],
+      "moods": [
+        "sparse"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering"
+      ],
+      "instruments": [
+        "sawtooth",
+        "sine",
+        "triangle",
+        "bd",
+        "rim"
+      ],
+      "bpm": 112,
+      "prompt_seeds": [
+        "sparse, haunting, still around 112 bpm, in F# minor, crusader lament, barely there, desolate and mournful",
+        "sparse, haunting, still, mournful"
+      ]
+    },
+    {
+      "id": "filmtrailer-hanszimmernotimeforcautioninterstellar",
+      "title": "Hans Zimmer — No Time For Caution (Interstellar)",
+      "author": "Interstellar",
+      "source_path": "generated/hanszimmernotimeforcautioninterstellar",
+      "snippet": "setcpm(60/4)\n\n$: note(\"<e2 g2 b2 d3>\").s(\"sawtooth\").lpf(400).room(0.9).delay(0.6).gain(0.3)\n\n$: note(\"<e3 [~ g3] [b3 ~] [d4 fs4]>\").s(\"square\").lpf(600).room(0.8).delay(0.5).gain(0.25).slow(2)\n\n$: note(\"<e1 e1 [e1 b1] [e1 d2]>\").s(\"triangle\").lpf(300).room(0.7).gain(0.4)\n\n$: note(\"<[b4 d5] ~ [fs5 a5] [g5 ~]>\").s(\"sine\").lpf(800).room(0.9).delay(0.7).gain(0.2).slow(4)\n\n$: note(\"e4\").s(\"supersaw\").lpf(sine.range(200,500).slow(8)).room(0.95).gain(0.35).slow(8)\n\n$: s(\"~ ~ [bd:4 ~] ~\").gain(0.25).room(0.5).slow(4)",
+      "slug": "hanszimmernotimeforcautioninterstellar",
+      "title_tokens": [
+        "hans",
+        "zimmer",
+        "—",
+        "no",
+        "time",
+        "for",
+        "caution",
+        "(interstellar)"
+      ],
+      "path_tokens": [
+        "generated",
+        "hans",
+        "zimmer",
+        "—",
+        "no",
+        "time",
+        "for",
+        "caution",
+        "(interstellar)"
+      ],
+      "aliases": [
+        "Interstellar Docking Scene",
+        "No Time For Caution"
+      ],
+      "genres": [
+        "cinematic",
+        "film"
+      ],
+      "moods": [
+        "dark"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "supersaw"
+      ],
+      "bpm": 60,
+      "prompt_seeds": [
+        "vast, dark, building tension, very slow at 60 bpm, in E minor, organ-like drones, cosmic scale, desperate urgency building from silence",
+        "vast, dark, building, cosmic"
+      ]
+    },
+    {
+      "id": "synthdarkwave-corporateoverlordvibe",
+      "title": "Corporate Overlord Vibe",
+      "author": "Synth/Darkwave",
+      "source_path": "generated/corporateoverlordvibe",
+      "snippet": "setcpm(107/4)\n\n$: note(\"f1 f1 [~ f1] f1\").s(\"sawtooth\").lpf(150).gain(0.5).room(0.1)\n\n$: note(\"<f2 ab2 db3 eb2>\").s(\"sawtooth\").lpf(400).gain(0.4).delay(0.3).room(0.2)\n\n$: note(\"f4 [~ ab4] [c5 db5] [~ eb4]\").s(\"square\").lpf(1200).hpf(300).gain(0.3).pan(sine.range(0.3,0.7)).room(0.3)\n\n$: note(\"<f5 ab5 c6 eb5>*4\").s(\"triangle\").lpf(2000).gain(0.25).delay(0.5).pan(perlin.range(0.2,0.8))\n\n$: s(\"bd ~ bd ~\").gain(0.35).room(0.05)\n\n$: s(\"~ sd ~ sd\").gain(0.3).room(0.15)\n\n$: s(\"hh*4\").gain(0.25).lpf(6000)\n\n$: note(\"f6*8\").s(\"sine\").lpf(4000).hpf(2000).gain(0.2).delay(0.6).room(0.4).pan(rand.range(0.3,0.7))",
+      "slug": "corporateoverlordvibe",
+      "title_tokens": [
+        "corporate",
+        "overlord",
+        "vibe"
+      ],
+      "path_tokens": [
+        "generated",
+        "corporate",
+        "overlord",
+        "vibe"
+      ],
+      "aliases": [],
+      "genres": [
+        "synthwave",
+        "darkwave"
+      ],
+      "moods": [
+        "dark",
+        "aggressive"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "bd",
+        "sd",
+        "hh"
+      ],
+      "bpm": 107,
+      "prompt_seeds": [
+        "dark, aggressive, driving around 107 bpm, in F minor, heavy sawtooth bass, dystopian corporate atmosphere, oppressive synth layers",
+        "dark, aggressive, driving, dystopian"
+      ]
+    },
+    {
+      "id": "synthdarkwave-synthwaveisolation",
+      "title": "Synthwave Isolation",
+      "author": "Synth/Darkwave",
+      "source_path": "generated/synthwaveisolation",
+      "snippet": "setcpm(117/4)\n\n$: note(\"f2 <ab2 c3> eb2 db2\").s(\"sawtooth\").lpf(300).room(0.5).gain(0.4).pan(0.5)\n\n$: note(\"<f3 ab3 c4 eb4>*2\").s(\"square\").lpf(800).delay(0.4).room(0.3).gain(0.25).pan(0.6)\n\n$: note(\"f4 [~ ab4] [c5 ~] [~ eb5] [db5 ~] [~ c5] [ab4 ~] [~ f4]\").s(\"sawtooth\").lpf(1200).delay(0.5).room(0.4).gain(0.3).pan(0.4)\n\n$: note(\"f5 ~ ~ ab5 ~ c6 ~ ~ eb6 ~ ~ db5 ~ ~ ~ c5\").s(\"sine\").lpf(2000).delay(0.6).room(0.6).gain(0.2).pan(sine.range(0.3,0.7).slow(8))\n\n$: s(\"bd ~ ~ bd ~ ~ bd ~, ~ ~ sd ~ ~ sd ~ ~, [~ hh]*8\").gain(0.3).room(0.2)\n\n$: s(\"~ ~ ~ ~ oh ~ ~ ~\").gain(0.25).room(0.3).hpf(8000)",
+      "slug": "synthwaveisolation",
+      "title_tokens": [
+        "synthwave",
+        "isolation"
+      ],
+      "path_tokens": [
+        "generated",
+        "synthwave",
+        "isolation"
+      ],
+      "aliases": [],
+      "genres": [
+        "synthwave",
+        "darkwave"
+      ],
+      "moods": [
+        "dark"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "bd",
+        "sd",
+        "hh",
+        "oh"
+      ],
+      "bpm": 117,
+      "prompt_seeds": [
+        "dark, melancholy, driving around 117 bpm, in F minor, lonely synthwave atmosphere, warm sawtooth pads, solitary night drive",
+        "dark, melancholy, driving, lonely"
+      ]
+    },
+    {
+      "id": "synthdarkwave-thealgorithmswhisper",
+      "title": "The Algorithm's Whisper",
+      "author": "Synth/Darkwave",
+      "source_path": "generated/thealgorithmswhisper",
+      "snippet": "setcpm(123/2)\n\n$: note(\"<e2 g2 b2 d3>*4\")\n.s(\"sawtooth\")\n.lpf(300)\n.gain(0.4)\n\n$: note(\"<e4 g4 b4 d5 fs4 a4>\".slow(2))\n.s(\"triangle\")\n.delay(0.6)\n.delaytime(0.375)\n.lpf(sine.range(400,1200).slow(8))\n.gain(0.25)\n.pan(perlin.range(0.3,0.7))\n\n$: note(\"<e5 [~ g5] [b5 ~] [~ d6]>\")\n.s(\"sine\")\n.delay(0.8)\n.delaytime(0.25)\n.room(0.7)\n.gain(0.2)\n.pan(rand.range(0,1))\n\n$: s(\"bd(3,8), sd(5,16,2), hh*8\")\n.gain(\"<0.3 0.35 0.3 0.25>\")\n.lpf(2000)\n\n$: note(\"<[e3 b3] [g3 d4] [b3 fs4] [d4 a4]>\")\n.s(\"square\")\n.lpf(600)\n.gain(\"0.2 0.15 0.25 0.18\".slow(2))\n.hpf(200)\n\n$: s(\"~ rim ~ cp\")\n.delay(0.5)\n.delaytime(0.125)\n.gain(0.3)",
+      "slug": "thealgorithmswhisper",
+      "title_tokens": [
+        "the",
+        "algorithm's",
+        "whisper"
+      ],
+      "path_tokens": [
+        "generated",
+        "the",
+        "algorithm's",
+        "whisper"
+      ],
+      "aliases": [],
+      "genres": [
+        "synthwave",
+        "darkwave"
+      ],
+      "moods": [
+        "mysterious",
+        "dark"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "bd",
+        "sd",
+        "hh",
+        "cp",
+        "rim"
+      ],
+      "bpm": 123,
+      "prompt_seeds": [
+        "mysterious, dark, pulsing around 123 bpm, in E minor, whispered digital textures, ghost in the machine",
+        "mysterious, dark, pulsing, digital"
+      ]
+    },
+    {
+      "id": "stealthgameost-encountertrack06",
+      "title": "Encounter (Track 06)",
+      "author": "Metal Gear Solid",
+      "source_path": "generated/encountertrack06",
+      "snippet": "setcpm(144)\n\n$: note(\"a2 [a2 c3] [e2 a2] [g2 a2]\")\n.s(\"supersaw\").lpf(800).gain(0.5).pan(0.5)\n\n$: note(\"<[a3 c4 e4]*8 [g3 b3 d4]*8 [f3 a3 c4]*8 [e3 g3 b3]*8>\")\n.s(\"square\").lpf(2400).gain(0.35).pan(sine.range(0.2,0.8).slow(4))\n\n$: note(\"<a4!4 c5!2 e5!2 g5!4 a5!2 c6!2>*4\")\n.s(\"sawtooth\").lpf(4000).hpf(800).gain(0.3).delay(0.1).pan(0.3)\n\n$: note(\"a5*16\").s(\"sine\").lpf(6000).gain(0.25).pan(0.7)\n\n$: note(\"<a4 c5 e5 g5>*8\")\n.s(\"triangle\").lpf(3000).gain(0.2).room(0.3).pan(rand.range(0,1))\n\n$: s(\"[bd*4, sd*8, [hh*16, oh*8], cp(5,16)]\")\n.gain(perlin.range(0.3,0.4)).room(0.2)\n\n$: s(\"hh*32\").gain(0.25).hpf(8000).pan(sine.range(0,1).fast(8))\n\n$: note(\"a6*32\").s(\"sine\").lpf(9000).gain(0.15).delay(0.05)",
+      "slug": "encountertrack06",
+      "title_tokens": [
+        "encounter",
+        "(track",
+        "06)"
+      ],
+      "path_tokens": [
+        "generated",
+        "encounter",
+        "(track",
+        "06)"
+      ],
+      "aliases": [],
+      "genres": [
+        "ambient",
+        "game-ost"
+      ],
+      "moods": [
+        "intense",
+        "bright",
+        "aggressive"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "supersaw",
+        "sd",
+        "hh",
+        "oh",
+        "cp"
+      ],
+      "bpm": 144,
+      "prompt_seeds": [
+        "intense, bright, aggressive at 144 bpm, in A minor, maximum density wall of sound, alert phase combat, relentless and overwhelming",
+        "intense, bright, aggressive, overwhelming"
+      ]
+    },
+    {
+      "id": "stealthgameost-enclosuretrack13",
+      "title": "Enclosure (Track 13)",
+      "author": "Metal Gear Solid",
+      "source_path": "generated/enclosuretrack13",
+      "snippet": "setcpm(66/4)\n\n$: s(\"bd\").bank(\"RolandTR909\").gain(0.4).room(0.6)\n\n$: s(\"~ sd ~ sd\").bank(\"RolandTR909\").gain(0.35).lpf(800).room(0.4)\n\n$: s(\"hh*8\").gain(\"[0.2 0.15]*4\").lpf(1200).pan(perlin.range(0.3,0.7))\n\n$: note(\"<d2 d2 c2 [d2 f2]>\").s(\"sawtooth\").lpf(180).gain(0.45).room(0.8)\n\n$: note(\"<d4 f4 c4 a3>*2\").s(\"square\").lpf(perlin.range(300,600)).delay(0.6).delaytime(0.375).delayfeedback(0.4).gain(0.25).pan(sine.range(0.2,0.8).slow(8))\n\n$: note(\"<d5 [~ f5] [~ c5] [a4 ~]>\").s(\"sine\").delay(0.8).delaytime(0.5).delayfeedback(0.6).gain(0.2).room(0.9).hpf(800)\n\n$: s(\"~ rim ~ [~ rim]\").gain(0.25).delay(0.5).delaytime(0.25).lpf(600).pan(0.3)\n\n$: note(\"<d3 d3 c3 d3>\").s(\"triangle\").gain(0.3).lpf(400).room(0.7).pan(0.5)",
+      "slug": "enclosuretrack13",
+      "title_tokens": [
+        "enclosure",
+        "(track",
+        "13)"
+      ],
+      "path_tokens": [
+        "generated",
+        "enclosure",
+        "(track",
+        "13)"
+      ],
+      "aliases": [],
+      "genres": [
+        "ambient",
+        "game-ost"
+      ],
+      "moods": [
+        "dark",
+        "intense"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "bd",
+        "sd",
+        "hh",
+        "rim"
+      ],
+      "bpm": 66,
+      "prompt_seeds": [
+        "dark, trapped, intense at 66 bpm, in D minor, claustrophobic atmosphere, deep rumbling tension, slow and oppressive",
+        "dark, trapped, intense, slow"
+      ]
+    },
+    {
+      "id": "minimalism-philipglassintheupperroomdanceno9",
+      "title": "Philip Glass — In The Upper Room: Dance No. 9",
+      "author": "In The Upper Room",
+      "source_path": "generated/philipglassintheupperroomdanceno9",
+      "snippet": "setcpm(89)\n\n$: note(\"a2 c3 e3 a3 c4 e4 a4 c5\")\n.s(\"triangle\")\n.lpf(sine.range(400,1200).slow(16))\n.gain(0.3)\n.room(0.3)\n\n$: note(\"a1 [~ a2] e2 [~ a2]\")\n.s(\"sawtooth\")\n.lpf(300)\n.gain(0.4)\n\n$: note(\"<[e4 a4 c5 e5] [d4 a4 c5 d5] [c4 e4 a4 c5] [e4 g4 b4 e5]>\")\n.s(\"sine\")\n.delay(0.4)\n.room(0.4)\n.gain(0.25)\n.pan(sine.slow(8))\n\n$: note(\"[[e5 a5 c6 e6]*4] [[d5 a5 c6 d6]*4] [[c5 e5 a5 c6]*4] [[e5 g5 b5 e6]*4]\")\n.s(\"square\")\n.lpf(sine.range(800,2400).slow(12))\n.gain(0.2)\n.delay(0.3)\n\n$: s(\"hh*8\")\n.gain(perlin.range(0.15,0.25))\n.hpf(8000)\n.pan(perlin.slow(4))\n\n$: s(\"bd(3,8) sd(2,8,1)\")\n.gain(0.35)\n.room(0.2)",
+      "slug": "philipglassintheupperroomdanceno9",
+      "title_tokens": [
+        "philip",
+        "glass",
+        "—",
+        "in",
+        "the",
+        "upper",
+        "room:",
+        "dance",
+        "no.",
+        "9"
+      ],
+      "path_tokens": [
+        "generated",
+        "philip",
+        "glass",
+        "—",
+        "in",
+        "the",
+        "upper",
+        "room:",
+        "dance",
+        "no.",
+        "9"
+      ],
+      "aliases": [],
+      "genres": [
+        "minimal",
+        "ambient"
+      ],
+      "moods": [
+        "hypnotic",
+        "building",
+        "minimalist"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "bd",
+        "sd",
+        "hh"
+      ],
+      "bpm": 89,
+      "prompt_seeds": [
+        "hypnotic, building, minimalist around 89 bpm, in A minor, repetitive layered patterns, gradual evolution, Glass-like arpeggios, meditative intensity",
+        "hypnotic, building, minimalist, meditative"
+      ]
+    },
+    {
+      "id": "historicalnorse-vikingsfehu",
+      "title": "Vikings — FeHu",
+      "author": "Historical/Norse",
+      "source_path": "generated/vikingsfehu",
+      "snippet": "setcpm(103)\n\n$: note(\"e2 [e2 b1] e2 [e2 fs2]\")\n.s(\"sawtooth\").lpf(400).gain(0.4)\n\n$: note(\"<[e3 b3 e4]*4 [fs3 cs4 fs4]*4>\")\n.s(\"square\").lpf(sine.range(600,1200).slow(8))\n.delay(0.3).delaytime(0.125).delayfeedback(0.4)\n.gain(0.25)\n\n$: s(\"bd:2*4\").gain(0.35).room(0.3)\n\n$: s(\"~ cp:1 ~ cp:1\").gain(0.3).room(0.4)\n\n$: s(\"hh:3*8\").gain(perlin.range(0.15,0.25))\n.hpf(8000).pan(sine.slow(7))\n\n$: note(\"<e4 b4 gs4 fs4>*2\")\n.s(\"triangle\").room(0.6)\n.delay(0.5).delaytime(0.375).delayfeedback(0.3)\n.gain(0.2)\n\n$: s(\"[bd:5,rim:2]*2\").gain(0.25).pan(0.3)\n\n$: note(\"e1\").s(\"sine\").gain(0.45).lpf(200)\n\n$: s(\"~ sd:4 ~ [sd:4 bd:3]\").gain(0.3).room(0.5)",
+      "slug": "vikingsfehu",
+      "title_tokens": [
+        "vikings",
+        "—",
+        "fehu"
+      ],
+      "path_tokens": [
+        "generated",
+        "vikings",
+        "—",
+        "fehu"
+      ],
+      "aliases": [
+        "FeHu",
+        "Vikings Theme"
+      ],
+      "genres": [
+        "historical/norse"
+      ],
+      "moods": [
+        "dark",
+        "intense"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "bd",
+        "sd",
+        "hh",
+        "cp"
+      ],
+      "bpm": 103,
+      "prompt_seeds": [
+        "dark, primal, intense around 103 bpm, in E major, Norse atmosphere, driving percussion-like energy, warrior chant, raw and powerful",
+        "dark, primal, intense, norse"
+      ]
+    },
+    {
+      "id": "fightinggameost-tekken4paulphoenix",
+      "title": "Tekken 4 — Paul Phoenix",
+      "author": "Tekken 4",
+      "source_path": "generated/tekken4paulphoenix",
+      "snippet": "setcpm(99)\n\n$: note(\"a2 [~ a2] ~ [e2 ~]\")\n.s(\"sawtooth\")\n.lpf(800)\n.gain(0.4)\n\n$: note(\"<a3 e3 f#3 d3>\")\n.s(\"sine\")\n.delay(0.3)\n.room(0.4)\n.gain(0.25)\n\n$: s(\"bd ~ ~ bd, ~ ~ sd ~, [~ hh]*4\")\n.gain(0.3)\n\n$: note(\"[a4 c#5 e5]/8\")\n.s(\"triangle\")\n.lpf(1200)\n.room(0.5)\n.pan(sine.slow(8))\n.gain(0.2)\n\n$: note(\"<[~ a5] ~ [e5 ~] ~>\")\n.s(\"square\")\n.lpf(600)\n.delay(0.4)\n.gain(0.15)\n\n$: s(\"~ ~ rim ~\")\n.delay(0.2)\n.gain(0.25)",
+      "slug": "tekken4paulphoenix",
+      "title_tokens": [
+        "tekken",
+        "4",
+        "—",
+        "paul",
+        "phoenix"
+      ],
+      "path_tokens": [
+        "generated",
+        "tekken",
+        "4",
+        "—",
+        "paul",
+        "phoenix"
+      ],
+      "aliases": [
+        "Paul's Theme"
+      ],
+      "genres": [
+        "action",
+        "game-ost"
+      ],
+      "moods": [
+        "sparse"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "bd",
+        "sd",
+        "hh",
+        "rim"
+      ],
+      "bpm": 99,
+      "prompt_seeds": [
+        "cool, laid-back, urban around 99 bpm, in A major, sparse textures, relaxed intensity, street fighter atmosphere",
+        "cool, laid-back, urban, sparse"
+      ]
+    },
+    {
+      "id": "fightinggameost-tekken2hophophiproger",
+      "title": "Tekken 2 — Hop-Hop-Hip Roger",
+      "author": "Tekken 2",
+      "source_path": "generated/tekken2hophophiproger",
+      "snippet": "setcpm(76)\n\n$: note(\"f3 [c3 a2] g3 [f3 bb2]\")\n.s(\"sawtooth\")\n.lpf(sine.range(400,800).slow(8))\n.gain(0.4)\n\n$: note(\"<[f4 a4 c5] [g4 bb4 d5] [c4 f4 a4] [d4 g4 bb4]>\")\n.s(\"square\")\n.lpf(700)\n.delay(0.3)\n.delaytime(0.125)\n.delayfb(0.4)\n.gain(0.3)\n.pan(sine.slow(5))\n\n$: note(\"f5 [a5 c6] [bb5 g5] [f5 d5] [c6 a5] [g5 e5] [bb5 f5] [a5 c5]\".fast(2))\n.s(\"sine\")\n.gain(0.25)\n.room(0.4)\n.pan(cosine.slow(3))\n\n$: note(\"[f6 <a6 c7 bb6 g6>]*4\")\n.s(\"triangle\")\n.hpf(2000)\n.gain(0.2)\n.delay(0.4)\n.delaytime(0.1875)\n\n$: s(\"bd [~ bd] ~ bd, ~ sd ~ [sd cp], [hh hh oh hh]*2, ~ ~ rim ~\")\n.gain(0.35)\n.room(0.2)\n\n$: note(\"f2 [~ f2] c3 [~ bb2]\")\n.s(\"sawtooth\")\n.lpf(200)\n.gain(0.5)\n\n$: note(\"<[f5!2 g5 a5] [bb5!2 a5 g5] [c6!2 bb5 a5] [d5!2 e5 f5]>\".fast(1.5))\n.s(\"supersaw\")\n.lpf(sine.range(1000,2500).slow(4))\n.gain(0.3)\n.pan(saw.slow(7))\n.delay(0.25)\n.delaytime(0.0625)",
+      "slug": "tekken2hophophiproger",
+      "title_tokens": [
+        "tekken",
+        "2",
+        "—",
+        "hop-hop-hip",
+        "roger"
+      ],
+      "path_tokens": [
+        "generated",
+        "tekken",
+        "2",
+        "—",
+        "hop-hop-hip",
+        "roger"
+      ],
+      "aliases": [
+        "Roger's Theme"
+      ],
+      "genres": [
+        "action",
+        "game-ost"
+      ],
+      "moods": [
+        "bright",
+        "playful"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "supersaw",
+        "bd",
+        "sd",
+        "hh",
+        "oh",
+        "cp",
+        "rim"
+      ],
+      "bpm": 76,
+      "prompt_seeds": [
+        "quirky, bright, bouncy around 76 bpm, in F major, dense layered textures, playful fighting energy, comedic undertone",
+        "quirky, bright, bouncy, playful"
+      ]
+    },
+    {
+      "id": "platformerost-sonicgenerationsrooftoprun",
+      "title": "Sonic Generations — Rooftop Run",
+      "author": "Sonic Generations",
+      "source_path": "generated/sonicgenerationsrooftoprun",
+      "snippet": "setcpm(152)\n\n$: note(\"<a3 e3 a3 [e3 a3]>*2\")\n.s(\"sawtooth\")\n.lpf(800)\n.gain(0.4)\n\n$: note(\"<[a4 cs5 e5] [e4 gs4 b4] [fs4 a4 cs5] [e4 gs4 b4]>\")\n.s(\"square\")\n.lpf(2400)\n.gain(0.3)\n.pan(perlin.range(0.3,0.7))\n\n$: note(\"<<a5 cs6 e6 a6> <e5 gs5 b5 e6> <fs5 a5 cs6 fs6> <gs5 b5 e6 gs6>>\")\n.s(\"sine\")\n.delay(0.25)\n.room(0.3)\n.gain(0.25)\n.pan(sine.range(0.2,0.8))\n\n$: note(\"[a6 cs7 e7 a7]*4\")\n.s(\"triangle\")\n.delay(0.125)\n.room(0.4)\n.gain(0.2)\n.pan(rand.range(0,1))\n\n$: note(\"<[a5 e6 a6 cs7] [e6 b6 e7 gs7] [fs5 cs6 fs6 a6] [e5 b5 e6 gs6]>\")\n.s(\"supersaw\")\n.lpf(3600)\n.hpf(400)\n.gain(0.35)\n.pan(0.5)\n\n$: s(\"bd*4, [~ sd]*2, hh*16, [~ oh]*4, [~ ~ ~ cp]*2\")\n.gain(\"<0.4 0.35 0.4 0.3>\")\n.room(0.15)",
+      "slug": "sonicgenerationsrooftoprun",
+      "title_tokens": [
+        "sonic",
+        "generations",
+        "—",
+        "rooftop",
+        "run"
+      ],
+      "path_tokens": [
+        "generated",
+        "sonic",
+        "generations",
+        "—",
+        "rooftop",
+        "run"
+      ],
+      "aliases": [],
+      "genres": [
+        "platformer ost"
+      ],
+      "moods": [
+        "bright"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "supersaw",
+        "bd",
+        "sd",
+        "hh",
+        "oh",
+        "cp"
+      ],
+      "bpm": 152,
+      "prompt_seeds": [
+        "bright, exhilarating, fast at 152 bpm, in A major, pure joy and speed, dense layered textures, rooftop parkour energy, harmonically stable",
+        "bright, exhilarating, fast, joyful"
+      ]
+    },
+    {
+      "id": "indiedreampop-beachhouseppp",
+      "title": "Beach House — PPP",
+      "author": "Indie/Dream Pop",
+      "source_path": "generated/beachhouseppp",
+      "snippet": "setcpm(103)\n\n$: note(\"cs3 [gs3 ds3] cs3 [fs3 cs3]\")\n.s(\"sawtooth\")\n.lpf(800)\n.room(0.9)\n.delay(0.5)\n.gain(0.35)\n\n$: note(\"cs5 [fs5 gs5] [as5 gs5] fs5\")\n.s(\"sine\")\n.room(0.95)\n.delay(0.7)\n.lpf(2400)\n.gain(0.25)\n\n$: note(\"<[cs4 es4 gs4] [as3 cs4 fs4] [gs3 bs3 ds4] [fs3 as3 cs4]>\")\n.s(\"supersaw\")\n.lpf(1600)\n.room(0.85)\n.delay(0.4)\n.gain(0.3)\n\n$: note(\"cs2 [~ cs2] fs2 [~ gs2]\")\n.s(\"triangle\")\n.room(0.6)\n.gain(0.45)\n.lpf(600)\n\n$: s(\"hh*8\")\n.gain(\"<0.15 0.2 0.15 0.18>\")\n.room(0.7)\n.lpf(8000)\n\n$: s(\"bd ~ sd ~\")\n.gain(0.3)\n.room(0.5)\n\n$: note(\"gs6 [~ cs7] [~ fs6] [as6 ~]\")\n.s(\"sine\")\n.room(0.98)\n.delay(0.9)\n.lpf(3500)\n.gain(0.2)\n.pan(sine.range(0.3, 0.7))",
+      "slug": "beachhouseppp",
+      "title_tokens": [
+        "beach",
+        "house",
+        "—",
+        "ppp"
+      ],
+      "path_tokens": [
+        "generated",
+        "beach",
+        "house",
+        "—",
+        "ppp"
+      ],
+      "aliases": [
+        "PPP"
+      ],
+      "genres": [
+        "indie/dream pop"
+      ],
+      "moods": [
+        "dreamy",
+        "warm",
+        "intense"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering"
+      ],
+      "instruments": [
+        "sawtooth",
+        "sine",
+        "triangle",
+        "supersaw",
+        "bd",
+        "sd",
+        "hh"
+      ],
+      "bpm": 103,
+      "prompt_seeds": [
+        "dreamy, warm, intense around 103 bpm, in C# major, shoegaze atmosphere, layered warm textures, nostalgic and enveloping",
+        "dreamy, warm, intense, nostalgic"
+      ]
+    },
+    {
+      "id": "remixmashup-layallyourloveonmebyzantineedit",
+      "title": "Lay All Your Love On Me (Byzantine Edit)",
+      "author": "Remix/Mashup",
+      "source_path": "generated/layallyourloveonmebyzantineedit",
+      "snippet": "setcpm(112/4)\n\n$: note(\"b1 [b1 b1] b1 [b1 b1] b1 [b1 b1]\")\n.s(\"sawtooth\")\n.lpf(120)\n.gain(0.45)\n\n$: note(\"<[b3 d4 e4] [cs4 e4 fs4] [a3 cs4 e4] [g3 b3 d4]>\")\n.s(\"square\")\n.lpf(800)\n.gain(0.35)\n.pan(sine.range(0.3, 0.7))\n\n$: note(\"<<b4 [d5 e5] [fs5 g5] [e5 d5]> <[cs5 d5] [e5 fs5] [a5 g5] [fs5 e5]>>\")\n.s(\"sine\")\n.room(0.7)\n.gain(0.3)\n.delay(0.2)\n\n$: note(\"[b5 d6 cs6 e6 d6 fs6 e6 g6]/2\")\n.s(\"triangle\")\n.lpf(3000)\n.hpf(1200)\n.room(0.8)\n.gain(0.25)\n.pan(sine.slow(7).range(0.2, 0.8))\n\n$: note(\"[b2 ~ b2 [a2 b2]] [b2 ~ d3 ~] [cs3 ~ b2 ~] [a2 ~ b2 d3]\")\n.s(\"supersaw\")\n.lpf(400)\n.gain(0.3)\n.room(0.4)\n\n$: s(\"bd:2*2, sd:1(3,8), hh:3*8, [~ cp:2], rim:4(5,16)\")\n.gain(perlin.range(0.25, 0.35))\n.room(0.3)\n.lpf(8000)\n\n$: s(\"[~ bd:5]*2\")\n.gain(0.4)\n.lpf(200)",
+      "slug": "layallyourloveonmebyzantineedit",
+      "title_tokens": [
+        "lay",
+        "all",
+        "your",
+        "love",
+        "on",
+        "me",
+        "(byzantine",
+        "edit)"
+      ],
+      "path_tokens": [
+        "generated",
+        "lay",
+        "all",
+        "your",
+        "love",
+        "on",
+        "me",
+        "(byzantine",
+        "edit)"
+      ],
+      "aliases": [],
+      "genres": [
+        "remix/mashup"
+      ],
+      "moods": [
+        "dark",
+        "intense"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "supersaw",
+        "bd",
+        "sd",
+        "hh",
+        "cp",
+        "rim"
+      ],
+      "bpm": 112,
+      "prompt_seeds": [
+        "dark, intense, powerful around 112 bpm, in B minor, Byzantine chant over synth, ancient meets modern, dense and driving",
+        "dark, intense, powerful, hybrid"
+      ]
+    },
+    {
+      "id": "popnovelty-witchdoctor",
+      "title": "Witch Doctor",
+      "author": "Pop/Novelty",
+      "source_path": "generated/witchdoctor",
+      "snippet": "setcpm(136)\n\n$: note(\"g3 [bb3 d4] [f3 c4] [eb3 bb3]\")\n.s(\"supersaw\").lpf(1800).room(0.3).gain(0.35)\n\n$: note(\"<[g4 bb4 d5]*4 [f4 a4 c5]*4 [eb4 g4 bb4]*4 [d4 f4 a4]*4>\")\n.s(\"square\").lpf(3500).delay(0.25).gain(0.3).pan(sine.range(0.3,0.7))\n\n$: note(\"[g5 d6 bb5 f5 eb5 c6]*3\")\n.s(\"triangle\").lpf(5000).delay(0.125).gain(0.25).pan(sine.range(0.2,0.8))\n\n$: note(\"[[g6 bb6]*2 [d7 f6] [a6 c7] [bb6 eb7]]*2\")\n.s(\"sine\").lpf(8000).delay(0.0625).gain(0.2).pan(saw.range(0.1,0.9))\n\n$: s(\"[bd ~ bd ~]*2,[~ sd ~ sd],[hh hh]*4,[~ ~ oh ~]\")\n.gain(\"<0.4 0.35 0.4 0.3>\").room(0.2)\n\n$: s(\"[[cp ~]*2 [~ rim]]*2\").delay(0.125).gain(0.25)",
+      "slug": "witchdoctor",
+      "title_tokens": [
+        "witch",
+        "doctor"
+      ],
+      "path_tokens": [
+        "generated",
+        "witch",
+        "doctor"
+      ],
+      "aliases": [],
+      "genres": [
+        "pop/novelty"
+      ],
+      "moods": [
+        "bright"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering"
+      ],
+      "instruments": [
+        "square",
+        "sine",
+        "triangle",
+        "supersaw",
+        "bd",
+        "sd",
+        "hh",
+        "oh",
+        "rim"
+      ],
+      "bpm": 136,
+      "prompt_seeds": [
+        "bright, energetic, novelty around 136 bpm, in G minor, playful and catchy, dense textures, high brightness",
+        "bright, energetic, novelty, catchy"
+      ]
+    },
+    {
+      "id": "bollywoodindian-oppanaindiandance",
+      "title": "Oppana — Indian Dance",
+      "author": "Bollywood/Indian",
+      "source_path": "generated/oppanaindiandance",
+      "snippet": "setcpm(129/4)\n\n$: note(\"g2 [bb2 d3] f2 [d3 g3]\".fast(2))\n.s(\"sawtooth\").lpf(800).gain(0.4)\n\n$: note(\"<g3 bb3 d4 f4>*8\".fast(2))\n.s(\"square\").lpf(1200).delay(0.3).gain(0.3).pan(sine.range(0.3,0.7))\n\n$: note(\"[[g4 bb4] [d5 f5] [bb4 d5] [f5 g5]]*2\")\n.s(\"triangle\").lpf(2000).room(0.4).gain(0.35).pan(cosine.range(0.2,0.8))\n\n$: note(\"<g5 d6 bb5 f5>*16\".fast(1.5))\n.s(\"sine\").hpf(800).delay(0.2).gain(0.25).pan(rand.range(0.3,0.7))\n\n$: note(\"[g6 bb6 d7]*8\")\n.s(\"triangle\").hpf(1200).room(0.3).gain(0.2).pan(sine.range(0.1,0.9))\n\n$: s(\"[bd:3 bd:4]*4, [cp:1 cp:2]*6, [hh:5 hh:3]*16, [oh:2@3 oh:1]*3\")\n.gain(0.35).room(0.2)\n\n$: s(\"rim:4*12\").delay(0.15).gain(0.25).pan(rand)\n\n$: note(\"[[g3 d4] bb3 [f3 d4] g3]*3\")\n.s(\"supersaw\").lpf(1500).gain(0.3).room(0.3)\n\n$: note(\"<bb5 d6 g6 f6>*12\")\n.s(\"sine\").hpf(1500).delay(0.25).gain(0.2).pan(cosine.range(0,1))",
+      "slug": "oppanaindiandance",
+      "title_tokens": [
+        "oppana",
+        "—",
+        "indian",
+        "dance"
+      ],
+      "path_tokens": [
+        "generated",
+        "oppana",
+        "—",
+        "indian",
+        "dance"
+      ],
+      "aliases": [],
+      "genres": [
+        "bollywood",
+        "world"
+      ],
+      "moods": [
+        "bright"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "supersaw",
+        "bd",
+        "hh",
+        "oh",
+        "cp",
+        "rim"
+      ],
+      "bpm": 129,
+      "prompt_seeds": [
+        "bright, rhythmic, wedding dance around 129 bpm, in G minor, extremely dense textures, high brightness, traditional Kerala celebration",
+        "bright, rhythmic, wedding, dense"
+      ]
+    },
+    {
+      "id": "bollywoodindian-badidoorseaayehai",
+      "title": "Badi Door Se Aaye Hai",
+      "author": "Bollywood/Indian",
+      "source_path": "generated/badidoorseaayehai",
+      "snippet": "setcpm(96)\n\n$: note(\"d3 a3 [f3 g3] a3\").s(\"sawtooth\").lpf(800).gain(0.35).room(0.3)\n\n$: note(\"<d4 a4 c5 g4>\").s(\"sine\").delay(0.3).gain(0.25).pan(0.6)\n\n$: note(\"d5 [f5 e5] d5 [c5 a4]\").s(\"triangle\").lpf(1200).room(0.4).gain(0.3).pan(-0.5)\n\n$: s(\"bd ~ bd ~, ~ sd ~ sd, [~ hh]*4\").gain(0.25).room(0.2)\n\n$: note(\"<a5 g5 f5 e5>*0.5\").s(\"square\").lpf(2000).delay(0.5).gain(0.2).pan(0.3)\n\n$: note(\"d2*2\").s(\"sine\").gain(0.4).lpf(400)",
+      "slug": "badidoorseaayehai",
+      "title_tokens": [
+        "badi",
+        "door",
+        "se",
+        "aaye",
+        "hai"
+      ],
+      "path_tokens": [
+        "generated",
+        "badi",
+        "door",
+        "se",
+        "aaye",
+        "hai"
+      ],
+      "aliases": [],
+      "genres": [
+        "bollywood",
+        "world"
+      ],
+      "moods": [
+        "warm",
+        "gentle"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "bd",
+        "sd",
+        "hh"
+      ],
+      "bpm": 96,
+      "prompt_seeds": [
+        "warm, nostalgic, gentle around 96 bpm, in D minor, Bollywood classic, soft and sentimental, family warmth",
+        "warm, nostalgic, gentle, sentimental"
+      ]
+    },
+    {
+      "id": "bollywoodindian-maithilithakurbbcperformance",
+      "title": "Maithili Thakur — BBC Performance",
+      "author": "Bollywood/Indian",
+      "source_path": "generated/maithilithakurbbcperformance",
+      "snippet": "setcpm(118/4)\n\n$: note(\"<[c3 e3 g#3] [f#3 a3 c4] [g#3 c4 e4] [a3 c#4 e4]>*2\")\n.s(\"supersaw\").lpf(1200).gain(0.3).room(0.3)\n\n$: note(\"<[c#5 e5 g#5 c#6] [f#5 a5 c#6 f#6] [g#5 c6 e6 g#6] [a5 c#6 e6 a6]>\")\n.s(\"sine\").delay(0.25).gain(0.25).pan(sine.range(0.3,0.7).slow(8))\n\n$: note(\"c#2 [c#2 f#2] g#2 [g#2 a2]\")\n.s(\"sawtooth\").lpf(400).gain(0.45).room(0.2)\n\n$: s(\"~ bd ~ bd, ~ ~ sd ~, [hh hh hh hh]*2\")\n.gain(0.35).room(0.2)\n\n$: note(\"<[c#6 d#6 e6 f#6 g#6 a6 b6 c#7]*4 [e6 f#6 g#6 a6 b6 c#7 d#7 e7]*4>\")\n.s(\"triangle\").lpf(2400).delay(0.125).gain(0.2).pan(sine.range(0.2,0.8).slow(5))\n\n$: note(\"<c#4 f#4 g#4 a4>*8\")\n.s(\"sine\").lpf(sine.range(800,2000).slow(4)).gain(0.18)\n.room(0.5).delay(0.375)",
+      "slug": "maithilithakurbbcperformance",
+      "title_tokens": [
+        "maithili",
+        "thakur",
+        "—",
+        "bbc",
+        "performance"
+      ],
+      "path_tokens": [
+        "generated",
+        "maithili",
+        "thakur",
+        "—",
+        "bbc",
+        "performance"
+      ],
+      "aliases": [],
+      "genres": [
+        "bollywood",
+        "world"
+      ],
+      "moods": [
+        "bright",
+        "intense"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "sine",
+        "triangle",
+        "supersaw",
+        "bd",
+        "sd",
+        "hh"
+      ],
+      "bpm": 118,
+      "prompt_seeds": [
+        "bright, devotional, intense around 118 bpm, in C# major, Indian classical vocals, layered and building, spiritual energy",
+        "bright, devotional, intense, classical"
+      ]
+    },
+    {
+      "id": "ambient-chriszabriskiecgisnake",
+      "title": "Chris Zabriskie — CGI Snake",
+      "author": "Ambient",
+      "source_path": "generated/chriszabriskiecgisnake",
+      "snippet": "setcpm(40)\n\n$: note(\"c#1 [~ c#1] ~ [~ c#1]\")\n.s(\"sine\")\n.lpf(80)\n.gain(0.5)\n.room(0.9)\n\n$: note(\"[~ [~ g#0]] ~ ~\")\n.s(\"triangle\")\n.lpf(60)\n.gain(0.4)\n.delay(0.8)\n\n$: note(\"~ ~ [f#0 ~] ~\")\n.s(\"sine\")\n.lpf(70)\n.gain(0.35)\n.room(0.95)\n\n$: note(\"~ ~ ~ [~ [~ d#1]]\")\n.s(\"triangle\")\n.lpf(75)\n.gain(0.3)\n.room(0.85)",
+      "slug": "chriszabriskiecgisnake",
+      "title_tokens": [
+        "chris",
+        "zabriskie",
+        "—",
+        "cgi",
+        "snake"
+      ],
+      "path_tokens": [
+        "generated",
+        "chris",
+        "zabriskie",
+        "—",
+        "cgi",
+        "snake"
+      ],
+      "aliases": [],
+      "genres": [
+        "ambient"
+      ],
+      "moods": [
+        "dark"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering"
+      ],
+      "instruments": [
+        "sine",
+        "triangle"
+      ],
+      "bpm": 118,
+      "prompt_seeds": [
+        "pure void, absolute darkness, sub-bass only, in C# major, zero high frequencies, near-empty texture, ambient void, cosmic silence",
+        "void, dark, sub-bass, minimal"
+      ]
+    },
+    {
+      "id": "unknown-itcomesandgoes",
+      "title": "It Comes and Goes",
+      "author": "Unknown",
+      "source_path": "generated/itcomesandgoes",
+      "snippet": "setcpm(143)\n\n$: note(\"e4 b4 <gs4 fs4> <b4 ds5>\")\n.s(\"square\")\n.lpf(sine.range(1200,2400).slow(8))\n.gain(0.3)\n.pan(sine.slow(7))\n\n$: note(\"<e3 b2 cs3 a2>\")\n.s(\"sawtooth\")\n.lpf(400)\n.gain(0.45)\n\n$: note(\"e5 <b5 gs5> <fs5 ds5> <gs5 b5>\")\n.s(\"sine\")\n.delay(0.3)\n.room(0.4)\n.gain(0.25)\n.pan(perlin.range(0.3,0.7))\n\n$: note(\"[e6 b6 gs6]*8\")\n.s(\"triangle\")\n.lpf(sine.range(3000,6000).fast(4))\n.gain(0.2)\n.pan(saw.range(0.2,0.8))\n\n$: note(\"e5!4 b5!4 gs5!4 fs5!4\")\n.s(\"supersaw\")\n.hpf(800)\n.lpf(4000)\n.room(0.5)\n.gain(0.35)\n\n$: s(\"bd*4, <hh*8 hh*16>, sd(3,8), [oh cp]*2\")\n.gain(0.35)\n.room(0.2)\n\n$: note(\"[e6 b6]*16\")\n.s(\"sine\")\n.lpf(8000)\n.delay(0.5)\n.gain(0.18)\n.pan(rand.range(0,1))",
+      "slug": "itcomesandgoes",
+      "title_tokens": [
+        "it",
+        "comes",
+        "and",
+        "goes"
+      ],
+      "path_tokens": [
+        "generated",
+        "it",
+        "comes",
+        "and",
+        "goes"
+      ],
+      "aliases": [],
+      "genres": [
+        "unknown"
+      ],
+      "moods": [
+        "bright",
+        "intense"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "supersaw",
+        "bd",
+        "sd",
+        "hh",
+        "cp"
+      ],
+      "bpm": 144,
+      "prompt_seeds": [
+        "bright, uplifting, intense, fast tempo around 143 bpm, in E major, dense and layered, shimmering textures, driving energy, no modulation",
+        "bright, uplifting, intense, driving"
+      ]
+    },
+    {
+      "id": "-vermillionicedmanedysmanemontagemmelodiaexplosivaremake70flstudio21freeflp",
+      "title": "Vermillion,ICEDMANE,DYSMANE- Montagem Melodia Explosiva  / REMAKE 70% / FL STUDIO 21 / FREE FLP",
+      "author": "",
+      "source_path": "generated/vermillionicedmanedysmanemontagemmelodiaexplosivaremake70flstudio21freeflp",
+      "snippet": "setcpm(129/4)\n\n$: note(\"c3 eb3 g3 bb3\").s(\"sawtooth\").lpf(800).room(0.9).delay(0.6).gain(0.35)\n  .slow(8)\n\n$: note(\"g4 c5 e5 g5 c6\").s(\"sine\").pan(sine.slow(16)).room(0.95).gain(0.25)\n  .slow(6)\n\n$: note(\"e4 g4 b4 d5 fs5\").s(\"triangle\").lpf(1200).delay(0.5).room(0.85).gain(0.3)\n  .slow(7)\n\n$: note(\"c5 d5 e5 g5 a5 c6\").s(\"square\").lpf(600).hpf(400).room(0.9).delay(0.7).gain(0.2)\n  .slow(10)\n\n$: note(\"g3 a3 c4 e4\").s(\"supersaw\").lpf(900).room(0.95).gain(0.18).pan(0.3)\n  .slow(9)\n\n$: note(\"e5 fs5 g5 a5 b5 d6\").s(\"sine\").lpf(2000).delay(0.8).room(0.9).gain(0.15).pan(0.7)\n  .slow(11)",
+      "slug": "vermillionicedmanedysmanemontagemmelodiaexplosivaremake70flstudio21freeflp",
+      "title_tokens": [
+        "vermillion,icedmane,dysmane-",
+        "montagem",
+        "melodia",
+        "explosiva",
+        "/",
+        "remake",
+        "70%",
+        "/",
+        "fl",
+        "studio",
+        "21",
+        "/",
+        "free",
+        "flp"
+      ],
+      "path_tokens": [
+        "generated",
+        "vermillion,icedmane,dysmane-",
+        "montagem",
+        "melodia",
+        "explosiva",
+        "/",
+        "remake",
+        "70%",
+        "/",
+        "fl",
+        "studio",
+        "21",
+        "/",
+        "free",
+        "flp"
+      ],
+      "aliases": [],
+      "genres": [
+        "unknown"
+      ],
+      "moods": [
+        "calm",
+        "neutral tone",
+        "uplifting"
+      ],
+      "techniques": [
+        "delay",
+        "reverb",
+        "filtering",
+        "slow-evolving"
+      ],
+      "instruments": [
+        "sawtooth",
+        "square",
+        "sine",
+        "triangle",
+        "supersaw"
+      ],
+      "bpm": 129.2,
+      "prompt_seeds": [
+        "uplifting, calm, moderate tempo around 129 bpm, in C major, layered and dense, ambient, no clear beat",
+        "calm, neutral tone, uplifting, moderate pace, dense, ambient"
+      ]
     }
   ],
   "version": "1.0.0",
-  "generated_at": "2026-02-16T00:00:00Z"
+  "generated_at": "2026-02-16T06:56:43.960943+00:00"
 }

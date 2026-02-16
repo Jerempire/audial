@@ -25,6 +25,26 @@ except AttributeError:
     pass
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
+
+def load_dotenv():
+    """Load .env file from project root into os.environ."""
+    env_path = PROJECT_ROOT / ".env"
+    if not env_path.exists():
+        return
+    with open(env_path, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, _, value = line.partition("=")
+            key = key.strip()
+            value = value.strip().strip("'\"")
+            if key and key not in os.environ:
+                os.environ[key] = value
+
+
+load_dotenv()
 TRACKS_PATH = PROJECT_ROOT / "data" / "tracks.json"
 SONG_INDEX_PATH = PROJECT_ROOT / "data" / "song-index.json"
 STYLE_PRIORS_PATH = PROJECT_ROOT / "data" / "style-priors.json"
