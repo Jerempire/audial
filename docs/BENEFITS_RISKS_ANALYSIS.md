@@ -93,7 +93,7 @@ Evaluating whether to start a music AI project, using [Audial](https://github.co
 | **Revenue potential?** | Low unless you find an underserved niche |
 
 ### Best Path Forward (If You Proceed)
-1. **Clone Audial** to `C:\Users\jmj2z\Projects\` as a learning/exploration project
+1. **Clone Audial** to `C:\Users\Jeremy\Projects\` as a learning/exploration project
 2. **Don't compete with Suno** — find a niche (game soundtracks, ambient music for focus apps, interactive music for web experiences)
 3. **Stay on the safe side legally** — the code-generation approach avoids most copyright issues
 4. **If commercializing**, rewrite key parts to escape AGPL, or contribute upstream and keep it open

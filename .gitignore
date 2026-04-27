@@ -44,3 +44,4 @@ yarn-error.log*
 __pycache__/
 *.pyc
 
+*.bak-2026-04-27
